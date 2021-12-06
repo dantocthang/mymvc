@@ -1,0 +1,36 @@
+img{
+    height: 230px;
+    }
+    .card{
+    padding-top: 10px;
+    height: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    }
+    .bi{
+    text-align: right;
+    padding-right: 10px;
+    font-size: 26px;
+    cursor: pointer;
+    }
+    h5{
+    padding-top: 15px;
+    }
+    .btn{
+    padding: 5px 25px;
+    margin-top: 10px;
+    }
+    @media(max-width: 768px){
+    img{
+    height: 100%;
+    }
+    }
+    @media(max-width: 575px){
+    .container{
+    width: 90%;
+    }
+    }
+
+.product_sidebar{
+    margin-left: 3rem;
+    margin-top: 10%;
+}
