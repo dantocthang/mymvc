@@ -37,10 +37,10 @@ class User extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function brand()
-    {
-        return $this->belongsTo(Brand::class, 'brand_id');
-    }
+    // public function brand()
+    // {
+    //     return $this->belongsTo(Brand::class, 'brand_id');
+    // }
 
     public function products()
     {

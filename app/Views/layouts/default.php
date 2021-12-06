@@ -21,7 +21,7 @@
     <link href="<?= request()->baseUrl(); ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= request()->baseUrl(); ?>/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="<?= request()->baseUrl(); ?>/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="<?= request()->baseUrl(); ?>/assets/vendor/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?= request()->baseUrl(); ?>/assets/vendor/fontawesome-free-5.15.4-web/css/all.min.css" rel="stylesheet">
     <link href="<?= request()->baseUrl(); ?>/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="<?= request()->baseUrl(); ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 

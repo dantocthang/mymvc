@@ -42,6 +42,31 @@
         max-height: 290px;
         margin-bottom: 20px;
         overflow: hidden;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .part-1{
+        position: relative;
+    }
+
+    .product-img{
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .single-product{
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
     }
 
     .section-products .single-product .part-1::before {
@@ -56,16 +81,16 @@
     }
 
     .section-products .single-product:hover .part-1::before {
-        transform: scale(1.2, 1.2) rotate(5deg);
+        transform: scale(1.2, 1.2);
     }
 
-    .section-products #product-1 .part-1::before {
-        background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+    /* .section-products #product-1 .part-1::before {
+        background: url("http://mymvc.local/assets/img/product/acernitro5.jpg") no-repeat center;
         background-size: cover;
         transition: all 0.3s;
-    }
+    } */
 
-    .section-products #product-2 .part-1::before {
+    /* .section-products #product-2 .part-1::before {
         background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
         background-size: cover;
     }
@@ -78,7 +103,7 @@
     .section-products #product-4 .part-1::before {
         background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
         background-size: cover;
-    }
+    } */
 
     .section-products .single-product .part-1 .discount,
     .section-products .single-product .part-1 .new {

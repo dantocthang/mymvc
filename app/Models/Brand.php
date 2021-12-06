@@ -42,9 +42,9 @@ class User extends Model
         return $this->hasMany(Product::class, 'brand_id');
     }
 
-    public function categories(){
-        return $this->hasMany(Category::class, 'brand_id');
-    }
+    // public function categories(){
+    //     return $this->hasMany(Category::class, 'brand_id');
+    // }
 
 
     

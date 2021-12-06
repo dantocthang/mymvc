@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model
+class Product extends Model
 {
 
     /**
@@ -20,7 +20,7 @@ class User extends Model
      * 
      * @var boolean
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * Danh các thuộc tính để khi gọi $model->fill($array) thì các
@@ -29,9 +29,9 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'product_name',
+        'name',
         'price',
-        'stock'
+        'image'
     ];
 
     /**

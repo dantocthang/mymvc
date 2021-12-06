@@ -37,7 +37,7 @@
         <?php if (auth()) : ?>
           <li class="dropdown"><a href="#">
               <div class="user">
-                <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+              <i class="fas fa-user"></i>
                 Hello <?= auth()->username ?>
               </div>
             </a>
@@ -50,7 +50,7 @@
         <?php else : ?>
           <li class="dropdown"><a href="#">
               <div class="user">
-                <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+              <i class="fas fa-user"></i>
                 Hello Guest
               </div>
             </a>
