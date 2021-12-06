@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Product;
 
 class ProductController extends BaseController
-{
+{ 
 
     public function showGrid()
     {
