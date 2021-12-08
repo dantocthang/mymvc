@@ -6,7 +6,7 @@
         <div class="row gy-4">
 
             <div class="col-lg-6">
-                <div class="portfolio-details-slider1 swiper1">
+                <div class="portfolio-details-slider swiper">
                     <div class="swiper-wrapper align-items-center">
 
                         <div class="swiper-slide">
