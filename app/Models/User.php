@@ -54,4 +54,13 @@ class User extends Model
     public function contacts(){
         return $this->hasMany(Contact::class,'user_id');
     }
+
+    /**
+     * role
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function roleUsers(){
+        return $this->hasMany(Role_user::class,'user_id');
+    }    
 }

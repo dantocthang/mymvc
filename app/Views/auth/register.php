@@ -52,7 +52,7 @@
                     <!-- Password input -->
                     <div class="form-outline mb-3">
                         <label class="form-label" for="password">Password</label>
-                        <input type="passworde" name="password" id="password" class="form-control form-control-lg <?= isset($errors['password']) ? 'is-invalid' : '' ?>" placeholder="Enter password" />
+                        <input type="password" name="password" id="password" class="form-control form-control-lg <?= isset($errors['password']) ? 'is-invalid' : '' ?>" placeholder="Enter password" />
                         <div class="invalid-feedback password-error">
                             <?= $errors['password'] ?? null; ?>
                         </div>

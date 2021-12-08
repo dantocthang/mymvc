@@ -32,6 +32,10 @@ Router::get('/profile','App\Controllers\ProfileController@showProfile');
 Router::get('/edit-profile','App\Controllers\ProfileController@showEditProfile');
 Router::post('/edit-profile','App\Controllers\ProfileController@editProfile');
 
+Router::get('/admin','App\Controllers\AdminController@admin');
+Router::get('/admin/categories','App\Controllers\AdminController@categories');
+
+
 Router::error(function(){
     echo '404 :: Page Not Found';
 });

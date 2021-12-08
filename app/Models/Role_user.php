@@ -5,22 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Product extends Model
+class Role_user extends Model
 {
     use SoftDeletes;
+
     /**
      * Tên bảng, nếu ko có thuộc tính này
      * Eloquent lấy tên theo tên của Model ở dạng số nhiều
      * 
      * @var string
      */
-    protected $table = 'products';
+    protected $table = 'role_user';
     /**
      * Sử dụng các thuộc tính created_at và updated_at trong bảng
      * 
      * @var boolean
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /**
      * Danh các thuộc tính để khi gọi $model->fill($array) thì các
@@ -29,26 +30,28 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'price',
-        'description',
-        'image'
+        'role_id',
+        'user_id'
     ];
 
-    /**
-     * profile
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function brand()
-    {
-        return $this->belongsTo(Brand::class, 'brand_id');
-    }
-
-    public function category(){
-        return $this->belongsTo(Category::class,'category_id');
-    }
-
-
     
+
+    /**
+     * role
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role(){
+        return $this->belongsTo(Role::class,'role_id');
+    } 
+    
+    
+    /**
+     * role
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(){
+        return $this->belongsTo(Role::class,'user_id');
+    }    
 }
