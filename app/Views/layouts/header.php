@@ -45,6 +45,12 @@
               <li><a href="/logout">Sign out</a></li>
               <li><a href="/profile">Profile</a></li>
               <li><a href="/contact">Contact</a></li>
+              <?php if(isset($_SESSION['isAdmin'])){
+                echo '<li><a href="/admin">Trang quản lý</a></li>';
+              }
+
+
+              ?>
             </ul>
           </li>
         <?php else : ?>

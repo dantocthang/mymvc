@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class User extends Model
+class Category extends Model
 {
 
     /**
@@ -29,7 +29,7 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'category_name'
+        'name'
     ];
 
     /**

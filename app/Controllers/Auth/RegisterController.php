@@ -5,6 +5,9 @@ namespace App\Controllers\Auth;
 use App\Controllers\BaseController;
 use App\Traits\UserAuthenticateTrait;
 
+use App\Models\User;
+use App\Models\Role_user;
+
 class RegisterController extends BaseController
 {
     use UserAuthenticateTrait;
@@ -58,6 +61,11 @@ class RegisterController extends BaseController
             $usr['password'] = encrypt_password($params['password']);
             $usr['email'] = $params['email'];
             $this->insertUser($usr);
+            $user = User::Where(['username'=> $usr['username']])->first();
+            $roleUser = new Role_user();
+            $roleUser->user_id = $user->id;
+            $roleUser->role_id = 2;
+            $roleUser->save(); 
             $isSuccess = true;
             $message['success'] = "Congratulations, your account has been created successfully.";
         }

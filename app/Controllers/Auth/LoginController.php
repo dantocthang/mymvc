@@ -4,6 +4,7 @@ namespace App\Controllers\Auth;
 
 use App\Controllers\BaseController;
 use App\Traits\UserAuthenticateTrait;
+use App\Models\Role_user;
 
 class LoginController extends BaseController
 {
@@ -27,6 +28,9 @@ class LoginController extends BaseController
         if ($user) {
             $user->password = null;
             $_SESSION['user'] = serialize($user);
+            $isAdmin = Role_user::Where(['role_id' => 1, 'user_id' => $user->id])->first();
+            if($isAdmin)
+            $_SESSION['isAdmin'] = true;
             //session()->set('user',serialize($user));
 
             if (isset($_POST['remember_me'])) {
@@ -37,7 +41,7 @@ class LoginController extends BaseController
 
                 setcookie('credentials', $encrypted, mktime(23, 59, 59, 12, 30, 2021));
             }
-            session()->setFlash(\FLASH::SUCCESS,'Login successfully!');
+            session()->setFlash(\FLASH::SUCCESS, 'Login successfully!');
             $this->redirect('/home');
         }
         $errors[] = 'Username or password is invalid!';
@@ -61,7 +65,4 @@ class LoginController extends BaseController
         session()->setFlash(\FLASH::INFO, 'Bye');
         $this->redirect('/home');
     }
-
-
-    
 }
