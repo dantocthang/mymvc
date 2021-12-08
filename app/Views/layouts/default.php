@@ -26,7 +26,7 @@
     <link href="<?= request()->baseUrl(); ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="<?= request()->baseUrl(); ?>/assets/css/style.css" rel="stylesheet">
     <!-- insert specific page's css -->
     <?= $this->section('css') ?>
 
@@ -61,10 +61,13 @@
     <?= $this->insert('layouts/footer') ?>
     <?= $this->insert('layouts/logout_modal') ?>
 
+    
+
     <a href="#" class="scroll-top">
         <i class="lni lni-chevron-up"></i>
     </a>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="<?= request()->baseUrl(); ?>/assets/vendor/aos/aos.js"></script>
     <script src="<?= request()->baseUrl(); ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= request()->baseUrl(); ?>/assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -76,10 +79,11 @@
 
     <!-- Template Main JS File -->
     <script src="<?= request()->baseUrl(); ?>/assets/js/main.js"></script>
+    <script src="<?= request()->baseUrl(); ?>/assets/js/product-delete-script.js"></script>
     
     <?= $this->insert('layouts/notifications'); ?>
     <?= $this->section('js') ?>
-
+    
 
 </body>
 

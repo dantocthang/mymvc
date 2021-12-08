@@ -22,6 +22,10 @@ Router::get('register','App\Controllers\Auth\RegisterController@showRegisterForm
 Router::post('register','App\Controllers\Auth\RegisterController@register');
 
 Router::get('/product','App\Controllers\Product\ProductController@showGrid');
+Router::post('/delete-product','App\Controllers\Product\ProductController@delete');
+Router::get('/product/detail','App\Controllers\Product\ProductController@showDetail');
+
+
 
 Router::get('/profile','App\Controllers\ProfileController@showProfile');
 

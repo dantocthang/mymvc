@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-
+    use SoftDeletes;
     /**
      * Tên bảng, nếu ko có thuộc tính này
      * Eloquent lấy tên theo tên của Model ở dạng số nhiều

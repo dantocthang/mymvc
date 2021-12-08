@@ -1073,6 +1073,11 @@ section {
 .portfolio-details {
   padding-top: 40px;
 }
+
+.btnAddAction{
+  
+}
+
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
 }
