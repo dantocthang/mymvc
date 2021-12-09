@@ -66,8 +66,8 @@ class AdminController extends BaseController
     public function addCategory()
     {
         print_r($_POST);
-        $isPost=$_POST['submit'] ?? null;
-        if ($isPost){
+        $isPost = $_POST['submit'] ?? null;
+        if ($isPost) {
             $category = new Category();
             $category->name = $_POST['name'];
             $isExist = Category::wherename($category->name)->first();
@@ -109,7 +109,7 @@ class AdminController extends BaseController
 
     public function brands()
     {
-         
+
         $brands = Brand::paginate($this->getPerPage());
         $total = Brand::count();
 
@@ -140,8 +140,8 @@ class AdminController extends BaseController
 
     public function addBrand()
     {
-        $isPost=$_POST['submit'] ?? null;
-        if ($isPost){
+        $isPost = $_POST['submit'] ?? null;
+        if ($isPost) {
             $brand = new Brand();
             $brand->name = $_POST['name'];
             $isExist = Brand::wherename($brand->name)->first();
@@ -149,9 +149,8 @@ class AdminController extends BaseController
                 $brand->save();
                 session()->setFlash(\FLASH::SUCCESS, 'Brand added successfully!');
                 unset($_POST['name']);
-                
             } else
-                session()->setFlash(\FLASH::WARNING, 'Brand name is already existed!');           
+                session()->setFlash(\FLASH::WARNING, 'Brand name is already existed!');
         }
         unset($_POST['submit']);
         return $this->brands();
@@ -161,7 +160,6 @@ class AdminController extends BaseController
     {
         $id = $this->request->post('id');
         $brand = Brand::find($id);
-        dump($brand);
 
         if ($this->request->ajax()) {
             if ($brand) {
@@ -184,4 +182,174 @@ class AdminController extends BaseController
         return $this->redirect($return_url);
     }
 
+
+    public function products()
+    {
+        if (isset($_GET['product-id'])) {
+            $product = Product::find($_GET['product-id']);
+            $categories = Category::all();
+            $brands = Brand::all();
+            return $this->render(
+                'admin/product-add',
+                [
+                    'product'=> $product,
+                    'brands' => $brands,
+                    'categories' => $categories,
+                ]
+            );
+        }
+
+        $products = Product::paginate($this->getPerPage());
+        $total = Product::count();
+
+        $paginator = new Paginator($this->request, $products, $total, 15);
+
+        $paginator->onEachSide(2);
+
+        if ($this->request->ajax()) {
+            $html = $this->view->render(
+                'admin/product-list',
+                [
+                    'products' => $products,
+                    'paginator' => $paginator,
+                ]
+            );
+
+            return $this->json(['data' => $html]);
+        }
+
+        return $this->render(
+            'admin/products',
+            [
+                'products' => $products,
+                'paginator' => $paginator,
+            ]
+        );
+    }
+
+    public function showAddProduct()
+    {
+        $categories = Category::all();
+        $brands = Brand::all();
+        return $this->render(
+            'admin/product-add',
+            [
+                'brands' => $brands,
+                'categories' => $categories,
+            ]
+        );
+    }
+
+    public function addProduct()
+    {
+        $ok = 1;
+        $attr = [
+            "category_id" => $_POST['category'],
+            "brand_id" => $_POST['brand'],
+            "name" => $_POST['name'],
+            "price"  => $_POST['price'],
+            "description" => $_POST['description'],
+        ];
+
+        // Avatar
+        if (($_FILES['image']['name']) != null) {
+            $uploaddir = 'assets/img/product/';
+            $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+
+            $imageFileType = strtolower(pathinfo($uploadfile, PATHINFO_EXTENSION));
+            if (
+                $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                && $imageFileType != "gif"
+            ) {
+                session()->setFlash(\FLASH::WARNING, 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
+                $ok = 0;
+            }
+
+
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+            } else {
+                session()->setFlash(\FLASH::ERROR, 'Your hình ảnh sản phẩm upload has failed!');
+            }
+            if ($ok) {
+                $product = new Product();
+                $product->image = $_FILES['image']['name'];
+                $product->fill($attr);
+                $product->save();
+                session()->setFlash(\FLASH::SUCCESS, 'Changes saved successfully!');
+            } else
+                session()->setFlash(\FLASH::ERROR, 'Không thêm được sản phẩm');
+        }
+        return $this->products();
+    }
+
+    public function editProduct()
+    {
+        $product_id = $_POST['product-id'];  
+        $product = Product::find($product_id);
+        $ok = 1;
+        $attr = [
+            "category_id" => $_POST['category'],
+            "brand_id" => $_POST['brand'],
+            "name" => $_POST['name'],
+            "price"  => $_POST['price'],
+            "description" => $_POST['description'],
+        ];
+
+        // Avatar
+        if (($_FILES['image']['name']) != null) {
+            $uploaddir = 'assets/img/product/';
+            $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+
+            $imageFileType = strtolower(pathinfo($uploadfile, PATHINFO_EXTENSION));
+            if (
+                $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                && $imageFileType != "gif"
+            ) {
+                session()->setFlash(\FLASH::WARNING, 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
+                $ok = 0;
+            }
+
+
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+            } else {
+                session()->setFlash(\FLASH::ERROR, 'Your hình ảnh sản phẩm upload has failed!');
+            }
+            if ($ok) {
+                $product->image = $_FILES['image']['name'];
+                
+            } else
+                session()->setFlash(\FLASH::ERROR, 'Không thêm hình ảnh');
+        }
+
+        $product->fill($attr);
+        $product->save();
+        session()->setFlash(\FLASH::SUCCESS, 'Changes saved successfully!');
+
+        return $this->products();
+    }
+
+    public function deleteProduct()
+    {
+        $id = $this->request->post('id');
+        $product = Product::find($id);
+        if ($this->request->ajax()) {
+            if ($product) {
+                if ($product->delete()) {
+                    return $this->json([
+                        'message' => $product->name . 'has been deleted successfully!'
+                    ], Response::HTTP_OK);
+                } else {
+                    return $this->json([
+                        'message' => 'Unable to delete Product!'
+                    ], Response::HTTP_BAD_REQUEST);
+                }
+            }
+            return $this->json([
+                'message' => 'Product ID does not exists!'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $return_url = $this->request->post('return_url', '/home');
+        return $this->redirect($return_url);
+    }
 }
