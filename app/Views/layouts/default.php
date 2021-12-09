@@ -24,6 +24,8 @@
     <link href="<?= request()->baseUrl(); ?>/assets/vendor/fontawesome-free-5.15.4-web/css/all.min.css" rel="stylesheet">
     <link href="<?= request()->baseUrl(); ?>/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="<?= request()->baseUrl(); ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
 
     <!-- Template Main CSS File -->
     <link href="<?= request()->baseUrl(); ?>/assets/css/style.css" rel="stylesheet">
@@ -68,6 +70,7 @@
     </a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="<?= request()->baseUrl(); ?>/assets/vendor/aos/aos.js"></script>
     <script src="<?= request()->baseUrl(); ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= request()->baseUrl(); ?>/assets/vendor/glightbox/js/glightbox.min.js"></script>

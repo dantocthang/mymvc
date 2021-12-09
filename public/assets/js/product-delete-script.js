@@ -2,7 +2,7 @@
     $(document).ready(function() {
 
         // Khi nhấn vào nút delete bất kỳ trên danh sách
-        $(document).on('click', '.delete-product', function(event) {
+        $(document).on('click', '.delete', function(event) {
             // stop chuyen link khi nhấn vào thẻ <a>
             event.preventDefault();
             // hiển thị Sweetaler2 và xoá bằng ajax 
@@ -50,7 +50,7 @@
             // Gọi hàm reloadWardList để load lại danh sách trên form
             let reload_url = $(e).data('return-url');
             // thẻ <div> chứa danh sách ward
-            let target = $('#product-list');
+            let target = $('.item-list');
             reloadProductList(reload_url, target);
             Swal.fire(
                 'Deleted!',

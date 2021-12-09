@@ -17,7 +17,7 @@
 
                 </div>
             </div>
-            <div id="product-list">
+            <div id="item-list">
                 <?php $this->insert('product/grid', [
                     'products' => $products,
                     //'paginator' => $paginator

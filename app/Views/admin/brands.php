@@ -5,21 +5,21 @@
     <div class="containter row justify-content-center">
         <div class="row">
             <div class="col-12 ">
-                <h3 class="title">Quản lý loại sản phẩm</h3>
+                <h3 class="title">Quản lý thương hiệu</h3>
             </div>
         </div>
         <div class="col-4 mt-5 ">
-            <form action="/admin/categories" method="POST">
+            <form action="/admin/brands" method="POST">
                 <div class="form-row d-flex align-items-center">
-                    <input type="text" name="name" id="category" class="form-control form-input" placeholder="Nhập tên loại sản phẩm" />
+                    <input type="text" name="name" id="brand" class="form-control form-input" placeholder="Nhập tên thương hiệu" />
                     <button type="submit" name="submit" value="submit" class="btn btn-primary form-btn">Thêm</button>
                 </div>
             </form>
         </div>
         <div class="row mt-5">
             <div class="col-8 m-auto mt-2 item-list">
-                <?php $this->insert('admin/cat-list', [
-                    'categories' => $categories,
+                <?php $this->insert('admin/brand-list', [
+                    'brands' => $brands,
                     'paginator' => $paginator
                 ]);
                 ?>

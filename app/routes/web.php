@@ -34,6 +34,12 @@ Router::post('/edit-profile','App\Controllers\ProfileController@editProfile');
 
 Router::get('/admin','App\Controllers\AdminController@admin');
 Router::get('/admin/categories','App\Controllers\AdminController@categories');
+Router::post('/admin/categories','App\Controllers\AdminController@addCategory');
+Router::post('/admin/categories/delete','App\Controllers\AdminController@deleteCategory');
+
+Router::get('/admin/brands','App\Controllers\AdminController@brands');
+Router::post('/admin/brands','App\Controllers\AdminController@addBrand');
+Router::post('/admin/brands/delete','App\Controllers\AdminController@deleteBrand');
 
 
 Router::error(function(){

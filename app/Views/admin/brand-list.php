@@ -11,18 +11,18 @@
         </thead>
         <tbody>
             <?php $start = ($paginator->currentPage() - 1) * $paginator->perPage() + 1; ?>
-            <?php foreach ($categories as $category) : ?>
+            <?php foreach ($brands as $brand) : ?>
                 <tr>
                     <th scope="row"><?= $start++; ?></th>
-                    <td><?= $category->id; ?></td>
-                    <td><?= $category->name; ?></td>
-                    <td><?= $category->created_at; ?></td>
+                    <td><?= $brand->id; ?></td>
+                    <td><?= $brand->name; ?></td>
+                    <td><?= $brand->created_at; ?></td>
                     <td>
-                        <a class="remove-category delete" 
-                        href="<?= request()->baseUrl(); ?>/admin/categories/delete" 
-                        data-id="<?= $category->id; ?>" 
-                        title="Delete <?= $category->name; ?>" 
-                        data-name="<?= $category->name; ?>" 
+                        <a class="remove-item delete" 
+                        href="<?= request()->baseUrl(); ?>/admin/brands/delete" 
+                        data-id="<?= $brand->id; ?>" 
+                        title="Delete <?= $brand->name; ?>" 
+                        data-name="<?= $brand->name; ?>" 
                         data-return-url="<?= request()->fullUrl(); ?>">
                         <i class="fas fa-times fa-2xl" style="font-size: 1.5rem;"></i>
                         </a>

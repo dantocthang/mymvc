@@ -9,7 +9,7 @@
                         <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fas fa-heart"></i></a></li>
                         <li><a href="<?= request()->baseUrl() ?>/product/detail?id=<?=$product->id?>"><i class="fas fa-expand"></i></a></li>
-                        <li><a class="delete-product" href="<?= request()->baseUrl() ?>/delete-product" data-id="<?= $product->id ?>" title="Delete <?= $product->name ?>" data-name="<?= $product->name ?>" data-return-url="<?= request()->fullUrl(); ?>"><i class="fas fa-trash"></i></a></li>
+                        <li><a class="delete" href="<?= request()->baseUrl() ?>/delete-product" data-id="<?= $product->id ?>" title="Delete <?= $product->name ?>" data-name="<?= $product->name ?>" data-return-url="<?= request()->fullUrl(); ?>"><i class="fas fa-trash"></i></a></li>
                     </ul>
                 </div>
                 <div class="part-2">
