@@ -64,5 +64,6 @@ class AdminController extends BaseController{
         $category->name=$_POST['name'];
         $category->save();
         session()->setFlash(\FLASH::SUCCESS, 'Category added successfully!');
+        $this->categories();
     }
 }

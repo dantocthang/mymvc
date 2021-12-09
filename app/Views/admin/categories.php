@@ -5,7 +5,7 @@
     <div class="containter row justify-content-center">
         <div class="row">
             <div class="col-12 ">
-                <h3>Quản lý loại sản phẩm</h3>
+                <h3 class="title">Quản lý loại sản phẩm</h3>
             </div>
         </div>
         <div class="col-4 mt-5 ">
@@ -30,7 +30,7 @@
 
 
 <style>
-    h3{
+    h3.title{
         text-align: center;
         margin-top: 2rem;
         color: #1e90ff;
