@@ -63,7 +63,7 @@
 
 
 
-    <a href="#" class="scroll-top">
+    <a href="#" class="back-to-top d-flex justify-content-center align-items-center">
         <i class="fas fa-chevron-up"></i>
     </a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

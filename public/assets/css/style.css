@@ -14,12 +14,12 @@ body {
 }
 
 a {
-  color: #106eea;
+  color: #000;
   text-decoration: none;
 }
 
 a:hover {
-  color: #3b8af2;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -698,6 +698,8 @@ section {
 /*--------------------------------------------------------------
 # Featured Services
 --------------------------------------------------------------*/
+
+
 .featured-services .icon-box {
   padding: 30px;
   position: relative;
@@ -738,7 +740,7 @@ section {
   margin-bottom: 15px;
   font-size: 18px;
 }
-.featured-services .title a {
+.featured-services .title {
   color: #111;
 }
 .featured-services .description {
@@ -746,7 +748,7 @@ section {
   line-height: 28px;
   margin-bottom: 0;
 }
-.featured-services .icon-box:hover .title a, .featured-services .icon-box:hover .description {
+.featured-services .icon-box:hover .title , .featured-services .icon-box:hover .description {
   color: #fff;
 }
 .featured-services .icon-box:hover .icon i {
@@ -1616,4 +1618,57 @@ section {
     text-align: center;
     padding: 2px 0;
   }
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+.pagination {
+  text-align: left;
+  margin: 40px 0 0;
+  display: block;
+}
+.pagination.center {
+  text-align: center;
+}
+.pagination.right {
+  text-align: right;
+}
+.pagination.left {
+  text-align: left;
+}
+.pagination .pagination-list {
+  display: inline-block;
+  overflow: hidden;
+}
+.pagination .pagination-list li {
+  margin-right: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.pagination .pagination-list li:last-child {
+  margin-right: 0;
+}
+.pagination .pagination-list li a {
+  background: #fff;
+  color: #081828;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 6px 18px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+.pagination .pagination-list li.active a,
+.pagination .pagination-list li:hover a {
+  background: #0167f3;
+  color: #fff;
+  border-color: transparent;
+}
+.pagination .pagination-list li a i {
+  font-size: 14px;
+}
+.blog-grids.pagination {
+  margin-top: 50px;
+  text-align: center;
 }

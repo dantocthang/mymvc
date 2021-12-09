@@ -9,8 +9,8 @@
             </div>
         </div>
         <div class="row justify-content-around">
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                <a href="/admin/categories">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 ">
+                <a href="/admin/categories" class="black">
                     <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon"><i class="far fa-list-alt"></i></div>
                         <h4 class="title">Loại sản phẩm</h4>
@@ -19,7 +19,7 @@
                 </a>
             </div>
 
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 ">
                 <a href="/admin/brands">
                     <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon"><i class="fas fa-tag"></i></div>
