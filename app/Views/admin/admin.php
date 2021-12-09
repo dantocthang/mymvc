@@ -9,9 +9,9 @@
             </div>
         </div>
         <div class="row justify-content-around">
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 ">
-                <a href="/admin/categories" class="black">
-                    <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 " id="black-font">
+                <a  href="/admin/categories">
+                    <div  class="icon-box" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon"><i class="far fa-list-alt"></i></div>
                         <h4 class="title">Loại sản phẩm</h4>
                         <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
@@ -45,5 +45,11 @@
         </div>
 
     </div>
+
+
 </section>
+
+<style>
+    #black
+</style>
 <?php $this->stop() ?>

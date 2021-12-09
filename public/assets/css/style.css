@@ -18,6 +18,10 @@ a {
   text-decoration: none;
 }
 
+#black-font>a{
+  color: #000 !important;
+}
+
 a:hover {
   color: #fff;
   text-decoration: none;
@@ -92,6 +96,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 28px;
   color: #fff;
   line-height: 0;
+  position: absolute;
+  top: 0;
+  left: 15px;
+  
 }
 .back-to-top:hover {
   background: #3284f1;
@@ -743,6 +751,12 @@ section {
 .featured-services .title {
   color: #111;
 }
+
+#black-font{
+  color: #000;
+  text-decoration: none;
+}
+
 .featured-services .description {
   font-size: 15px;
   line-height: 28px;
@@ -1620,9 +1634,7 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
+/* Css them pagination*/
 .pagination {
   text-align: left;
   margin: 40px 0 0;
