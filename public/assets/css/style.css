@@ -18,6 +18,10 @@ a {
   text-decoration: none;
 }
 
+#black-font>a{
+  color: #000 !important;
+}
+
 a:hover {
   color: #3b8af2;
   text-decoration: none;
@@ -92,6 +96,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 28px;
   color: #fff;
   line-height: 0;
+  position: absolute;
+  top: 0;
+  left: 15px;
+  
 }
 .back-to-top:hover {
   background: #3284f1;
@@ -741,6 +749,12 @@ section {
 .featured-services .title a {
   color: #111;
 }
+
+#black-font{
+  color: #000;
+  text-decoration: none;
+}
+
 .featured-services .description {
   font-size: 15px;
   line-height: 28px;
@@ -1616,4 +1630,55 @@ section {
     text-align: center;
     padding: 2px 0;
   }
+}
+
+/* Css them pagination*/
+.pagination {
+  text-align: left;
+  margin: 40px 0 0;
+  display: block;
+}
+.pagination.center {
+  text-align: center;
+}
+.pagination.right {
+  text-align: right;
+}
+.pagination.left {
+  text-align: left;
+}
+.pagination .pagination-list {
+  display: inline-block;
+  overflow: hidden;
+}
+.pagination .pagination-list li {
+  margin-right: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.pagination .pagination-list li:last-child {
+  margin-right: 0;
+}
+.pagination .pagination-list li a {
+  background: #fff;
+  color: #081828;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 6px 18px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+.pagination .pagination-list li.active a,
+.pagination .pagination-list li:hover a {
+  background: #0167f3;
+  color: #fff;
+  border-color: transparent;
+}
+.pagination .pagination-list li a i {
+  font-size: 14px;
+}
+.blog-grids.pagination {
+  margin-top: 50px;
+  text-align: center;
 }

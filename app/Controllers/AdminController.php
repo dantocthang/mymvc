@@ -58,4 +58,11 @@ class AdminController extends BaseController{
             ]
         );
     }
+
+    public function addCategory(){
+        $category=new Category();
+        $category->name=$_POST['name'];
+        $category->save();
+        session()->setFlash(\FLASH::SUCCESS, 'Category added successfully!');
+    }
 }

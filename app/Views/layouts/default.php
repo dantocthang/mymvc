@@ -10,8 +10,8 @@
 
 
 
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="<?= request()->baseUrl(); ?>/assets/img/favicon.png" rel="icon">
+    <link href="<?= request()->baseUrl(); ?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -63,7 +63,7 @@
 
 
 
-    <a href="#" class="scroll-top">
+    <a href="#" class="back-to-top d-flex justify-content-center align-items-center">
         <i class="fas fa-chevron-up"></i>
     </a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
