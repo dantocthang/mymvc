@@ -19,25 +19,25 @@
                 </a>
             </div>
 
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                    <a href="/admin/brands">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 ">
+                <a href="/admin/brands">
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon"><i class="fas fa-tag"></i></div>
                         <h4 class="title">Hãng sản xuất</h4>
                         <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                    </a>
-                </div>
+                    </div>
+                </a>
 
             </div>
 
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                    <a href="/admin/products">
+                <a href="/admin/products">
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon"><i class="fa fa-laptop" aria-hidden="true"></i></div>
                         <h4 class="title">Sản phẩm</h4>
                         <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                    </a>
-                </div>
+                    </div>
+                </a>
 
             </div>
 

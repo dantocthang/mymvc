@@ -23,7 +23,7 @@ a {
 }
 
 a:hover {
-  color: #3b8af2;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -706,6 +706,8 @@ section {
 /*--------------------------------------------------------------
 # Featured Services
 --------------------------------------------------------------*/
+
+
 .featured-services .icon-box {
   padding: 30px;
   position: relative;
@@ -746,7 +748,7 @@ section {
   margin-bottom: 15px;
   font-size: 18px;
 }
-.featured-services .title a {
+.featured-services .title {
   color: #111;
 }
 
@@ -760,7 +762,7 @@ section {
   line-height: 28px;
   margin-bottom: 0;
 }
-.featured-services .icon-box:hover .title a, .featured-services .icon-box:hover .description {
+.featured-services .icon-box:hover .title , .featured-services .icon-box:hover .description {
   color: #fff;
 }
 .featured-services .icon-box:hover .icon i {
