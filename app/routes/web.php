@@ -41,6 +41,14 @@ Router::get('/admin/brands','App\Controllers\AdminController@brands');
 Router::post('/admin/brands','App\Controllers\AdminController@addBrand');
 Router::post('/admin/brands/delete','App\Controllers\AdminController@deleteBrand');
 
+Router::get('/admin/products','App\Controllers\AdminController@products');
+Router::get('/admin/products/add','App\Controllers\AdminController@showAddProduct');
+Router::post('/admin/products/add','App\Controllers\AdminController@addProduct');
+
+Router::post('/admin/products/edit','App\Controllers\AdminController@editProduct');
+
+Router::post('/admin/products/delete','App\Controllers\AdminController@deleteProduct');
+
 
 Router::error(function(){
     echo '404 :: Page Not Found';
