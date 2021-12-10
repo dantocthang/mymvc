@@ -55,7 +55,9 @@ class RegisterController extends BaseController
         $exist = $this->checkUsername($params['username']);
         if ($exist) {
             $errors['username'] = "This username is already taken. Please choose another one.";
-        } else {
+        } 
+        
+        if(empty($errors)){
             $usr = [];
             $usr['username'] = $params['username'];
             $usr['password'] = encrypt_password($params['password']);

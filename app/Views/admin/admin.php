@@ -49,7 +49,4 @@
 
 </section>
 
-<style>
-    #black
-</style>
 <?php $this->stop() ?>

@@ -1,31 +1,33 @@
 <header id="header" class="d-flex align-items-center header">
   <div class="container d-flex align-items-center justify-content-between">
 
-    <h1 class="logo"><a href="<?=request()->baseUrl()?>/home">TDStore</a></h1>
+    <h1 class="logo"><a href="<?= request()->baseUrl() ?>/home">TDStore</a></h1>
     <!-- Uncomment below if you prefer to use an image logo -->
     <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
     <div class="col-lg-5 col-md-7 d-xs-none">
       <div class="main-menu-search">
-        <div class="navbar-search search-style-5">
-          <div class="search-input">
-            <input type="text" placeholder="Search" />
+        <form action="/product/search" method="POST">
+          <div class="navbar-search search-style-5">
+            <div class="search-input">
+              <input name="searchKeyWord" type="text" placeholder="Search" />
+            </div>
+            <div class="search-btn">
+              <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
           </div>
-          <div class="search-btn">
-            <button><i class="fa fa-search" aria-hidden="true"></i></button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-        <li><a class="nav-link scrollto" href="#about">About</a></li>
+        <li><a class="nav-link scrollto active" href="/home">Home</a></li>
+        <li><a class="nav-link scrollto" href="/product">Sản phẩm</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <?php if (auth()) : ?>
           <li class="dropdown"><a href="#">
               <div class="user">
-              <i class="fas fa-user"></i>
+                <i class="fas fa-user"></i>
                 Hello <?= auth()->username ?>
               </div>
             </a>
@@ -33,7 +35,7 @@
               <li><a href="/logout">Sign out</a></li>
               <li><a href="/profile">Profile</a></li>
               <li><a href="/contact">Contact</a></li>
-              <?php if(isset($_SESSION['isAdmin'])){
+              <?php if (isset($_SESSION['isAdmin'])) {
                 echo '<li><a href="/admin">Trang quản lý</a></li>';
               }
 
@@ -44,7 +46,7 @@
         <?php else : ?>
           <li class="dropdown"><a href="#">
               <div class="user">
-              <i class="fas fa-user"></i>
+                <i class="fas fa-user"></i>
                 Hello Guest
               </div>
             </a>
@@ -58,7 +60,7 @@
         <li>
           <!-- <div class="cart"> -->
 
-          <a href="#">
+          <a href="/cart">
             <div class="cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>Cart</div>
           </a>
           <!-- </div> -->
