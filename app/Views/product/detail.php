@@ -10,10 +10,10 @@
                     <div class="swiper-wrapper align-items-center">
 
                         <div class="swiper-slide">
-                            <img id="img-1" class="product-img" src="<?= request()->baseUrl(); ?>/assets/img/product/<?=$detail->image?>" alt="">
+                            <img id="img-1" class="product-img" src="<?= request()->baseUrl(); ?>/assets/img/product/<?= $detail->image ?>" alt="">
                         </div>
 
-                        
+
 
                     </div>
                     <div class="swiper-pagination"></div>
@@ -22,20 +22,23 @@
 
             <div class="col-lg-6">
                 <div class="portfolio-info">
-                    <h3><?=$detail->name?></h3>
+                    <h3><?= $detail->name ?></h3>
                     <ul>
-                        <li><strong>Giá</strong>: <?=$detail->price?> đ</li>
+                        <li><strong>Giá</strong>: <?= $detail->price ?> đ</li>
                     </ul>
                 </div>
                 <div class="portfolio-description">
                     <h2>Mô tả sản phẩm</h2>
                     <p>
-                        Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                        <?= $detail->description ?>
                     </p>
                 </div>
                 <div class="center">
                     <div class="buttons d-flex flex-row">
-                        <div class="cart"><i class="fa fa-shopping-cart" style="font-size: 2rem;"></i></div> <button class="btn btn-primary cart-button px-5"><span class="dot"></span>Add to cart </button>
+                        <div class="cart"><i class="fa fa-shopping-cart" style="font-size: 2rem;"></i></div>
+                        <a href="/product/add-to-cart?id=<?=$detail->id?>">
+                            <button class="btn btn-primary cart-button px-5"><span class="dot"></span>Add to cart </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -140,7 +143,7 @@
 
             function cartClick() {
                 amount++;
-                dot.innerHTML=amount;
+                dot.innerHTML = amount;
                 let button = this;
                 button.classList.add('clicked');
             }

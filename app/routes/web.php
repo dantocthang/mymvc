@@ -50,6 +50,10 @@ Router::post('/admin/products/edit','App\Controllers\AdminController@editProduct
 Router::post('/admin/products/delete','App\Controllers\AdminController@deleteProduct');
 
 
+Router::get('/product/add-to-cart','App\Controllers\CartController@addToCart');
+Router::get('/cart','App\Controllers\CartController@cart');
+Router::post('/cart/delete','App\Controllers\CartController@delete');
+
 Router::error(function(){
     echo '404 :: Page Not Found';
 });

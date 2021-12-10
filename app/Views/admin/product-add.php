@@ -6,9 +6,9 @@ $this->layout(config('view.layout')) ?>
 
 <?php $this->start('page') ?>
 <div class="section row justify-content-center align-items-center">
-    <h3 class="title"><?= $product ? 'Chỉnh sửa thông tin sản phẩm': 'Thêm sản phẩm'?></h3>
+    <h3 class="title"><?= $product ?? null ? 'Chỉnh sửa thông tin sản phẩm': 'Thêm sản phẩm'?></h3>
     <div class="row col-8 mt-5">
-        <form action="/admin/products/<?= $product ? 'edit': 'add' ?>" method="POST" enctype="multipart/form-data">
+        <form action="/admin/products/<?= $product ?? null ? 'edit': 'add' ?>" method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <select name="category" id="category" class="form-select" aria-label="Default select example">
 
@@ -19,7 +19,7 @@ $this->layout(config('view.layout')) ?>
                         <?php if ($product->id != null && $category->id == $product->category->id) : ?>
                             <option selected value="<?= $product->category->id ?>"><?= $product->category->name ?></option>
                         <?php else : ?>
-                            <option value="<?= $product->category->id ?>"><?= $product->category->name ?></option>
+                            <option value="<?= $category->id ?>"><?= $category->name ?></option>
                         <?php endif; ?>
 
                     <?php endforeach; ?>
@@ -55,14 +55,14 @@ $this->layout(config('view.layout')) ?>
                 <textarea name="description" class="form-control form-input" placeholder="Mô tả sản phẩm" cols="30" rows="5" > <?=$product->description ?? null ?> </textarea>
 
             </div>
-            <label for="image"><?= $product ? 'Hình ảnh sản phẩm: ' . $product->image : 'Thêm hình ảnh sản phẩm'?></label>
+            <label for="image"><?= $product ?? null ? 'Hình ảnh sản phẩm: ' . $product->image : 'Thêm hình ảnh sản phẩm'?></label>
             <div class="form-row">
                 <input type="file" name="image" class="form-control form-input" placeholder="Chọn hình ảnh sản phẩm" id="image" value="<?=$product->image ?? null ?>" />
 
             </div>
 
                           
-            <button type="submit" name="submit" value="submit" class="btn btn-primary them fs-5"><?= $product ? 'Chỉnh sửa': 'Thêm'?></button>
+            <button type="submit" name="submit" value="submit" class="btn btn-primary them fs-5"><?= $product ?? null ? 'Chỉnh sửa': 'Thêm'?></button>
         </form>
     </div>
 

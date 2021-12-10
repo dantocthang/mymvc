@@ -62,5 +62,14 @@ class User extends Model
      */
     public function roleUsers(){
         return $this->hasMany(Role_user::class,'user_id');
+    }  
+    
+    /**
+     * cart
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function carts(){
+        return $this->hasMany(Cart::class,'user_id');
     }    
 }
