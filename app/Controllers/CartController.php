@@ -48,32 +48,38 @@ class CartController extends BaseController
     public function cart()
     {
         $user = auth();
+        if ($user == null) {
+
+            session()->setFlash(\FLASH::INFO, 'Bạn phải đăng để sử dụng chức năng này');
+
+            redirect('/login');
+        }
         $cart = Cart::whereuser_id($user->id)->first();
         $cartDetails = CartDetail::wherecart_id($cart->id)->paginate($this->getPerPage());
-        $items=CartDetail::wherecart_id($cart->id)->get();
-        $total_price=0;
-        foreach ($items as $item){
-            $total_price+=$item->amount*$item->price;
+        $items = CartDetail::wherecart_id($cart->id)->get();
+        $total_price = 0;
+        foreach ($items as $item) {
+            $total_price += $item->amount * $item->price;
         }
         $total = CartDetail::wherecart_id($cart->id)->count();
         $paginator = new Paginator($this->request, $cartDetails, $total);
         $paginator->onEachSide(2);
 
         if ($this->request->ajax()) {
-            $html = $this->view->render('cart/cart-list', ['cartDetails' => $cartDetails, 'paginator' => $paginator,'cart' => $cart,'total_price'=>$total_price]);
+            $html = $this->view->render('cart/cart-list', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price]);
             //print_r($html);
             return $this->json([
                 'data' => $html
             ]);
         }
 
-        return $this->render('cart/cart', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart,'total_price'=>$total_price]);
+        return $this->render('cart/cart', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price]);
     }
 
 
     public function delete()
     {
-        $id=$this->request->post('id');
+        $id = $this->request->post('id');
         $cartDetail = CartDetail::find($id);
         if ($this->request->ajax()) {
             if ($cartDetail) {
@@ -95,5 +101,4 @@ class CartController extends BaseController
         $return_url = $this->request->post('return_url', '/home');
         return $this->redirect($return_url);
     }
-    
 }

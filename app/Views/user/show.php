@@ -7,8 +7,10 @@
 <?php $this->start('page') ?>
 
 <div class="container">
-  <div class="mt-8 mb-8">
-    <h1>Profile</h1>
+  <div class="row">
+    <div class="col-10">
+      <h3>Profile</h3>
+    </div>
   </div>
   <div class="main-body">
     <div class="row gutters-sm">

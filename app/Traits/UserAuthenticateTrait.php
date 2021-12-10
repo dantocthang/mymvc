@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Models\User;
+use App\Models\Role_user;
 
 trait UserAuthenticateTrait
 {
@@ -29,6 +30,7 @@ trait UserAuthenticateTrait
     public function signout()
     {
         unset($_SESSION['user']);
+        unset($_SESSION['isAdmin']);
         //session()->remove('user');
 
         if (isset($_COOKIE['credentials'])) {
@@ -65,6 +67,9 @@ trait UserAuthenticateTrait
         if ($user) {
             
             $_SESSION['user'] = serialize($user);
+            $isAdmin = Role_user::Where(['role_id' => 1, 'user_id' => $user->id])->first();
+            if($isAdmin)
+            $_SESSION['isAdmin'] = true;
         }
  
     }

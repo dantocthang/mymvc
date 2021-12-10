@@ -40,7 +40,7 @@
 
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="email">Username</label>
+                        <label class="form-label" for="email">Email</label>
                         <input type="email" name="email" value="<?=$params['email'] ?? null?>" id="email" class="form-control form-control-lg <?= isset($errors['email']) ? 'is-invalid' : '' ?>" placeholder="Enter email" />
                         <div id="ivl" class="invalid-feedback email-error">
                             <?= $errors['email'] ?? null; ?>

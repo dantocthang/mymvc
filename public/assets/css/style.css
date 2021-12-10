@@ -97,8 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   line-height: 0;
   position: absolute;
-  top: 0;
-  left: 15px;
+  top: 15px;
+  left: 7px;
   
 }
 .back-to-top:hover {
@@ -912,7 +912,7 @@ section {
 --------------------------------------------------------------*/
 .testimonials {
   padding: 80px 0;
-  background: url("../img/testimonials-bg.jpg") no-repeat;
+  background: linear-gradient(to left, #106eea, #6dd5ed);
   background-position: center center;
   background-size: cover;
   position: relative;
@@ -924,7 +924,7 @@ section {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  /* background: rgba(0, 0, 0, 0.7); */
 }
 .testimonials .section-header {
   margin-bottom: 40px;

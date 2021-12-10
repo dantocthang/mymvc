@@ -8,8 +8,10 @@
 
 
 <div class="container">
-    <div class="mt-8 mb-8">
-        <h1>Profile</h1>
+    <div class="row">
+        <div class="col-10">
+            <h3>Profile</h3>
+        </div>
     </div>
     <form action="/edit-profile" method="post" enctype="multipart/form-data">
         <div class="main-body">
@@ -19,7 +21,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <?php if ($profile->avatar != NULL) : ?>
+                                <?php if ($profile->avatar ?? NULL) : ?>
                                     <img src="/assets/img/profile/<?= $profile->avatar ?>" alt="Avatar" class="rounded-circle" width="150">
                                 <?php else : ?>
                                     <img src="/assets/img/profile/default_profile_image.png" alt="Avatar" class="rounded-circle" width="150">

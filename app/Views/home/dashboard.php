@@ -17,28 +17,36 @@
          <div class="container" data-aos="fade-up">
 
              <div class="row justify-content-around">
-                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                     <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                         <div class="icon"><i class="fa fa-mobile" aria-hidden="true"></i></div>
-                         <h4 class="title"><a href="">Điện thoại</a></h4>
-                         <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                     </div>
+                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 " id="black-font">
+                     <a href="/product?category_name=Smartphone">
+                         <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                             <div class="icon"><i class="fas fa-mobile"></i></div>
+                             <h4 class="title">Điện thoại</h4>
+                             <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                         </div>
+                     </a>
+                 </div>
+
+                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 ">
+                     <a href="/product?category_name=Tablet">
+                         <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+                             <div class="icon"><i class="fas fa-tablet"></i></div>
+                             <h4 class="title">Máy tính bảng</h4>
+                             <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                         </div>
+                     </a>
+
                  </div>
 
                  <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                     <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                         <div class="icon"><i class="fa fa-tablet" aria-hidden="true"></i></div>
-                         <h4 class="title"><a href="">Máy tính bảng</a></h4>
-                         <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                     </div>
-                 </div>
+                     <a href="/product?category_name=Laptop">
+                         <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                             <div class="icon"><i class="fas fa-laptop"></i></div>
+                             <h4 class="title">Laptop</h4>
+                             <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                         </div>
+                     </a>
 
-                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                     <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                         <div class="icon"><i class="fa fa-laptop" aria-hidden="true"></i></div>
-                         <h4 class="title"><a href="">Laptop </a></h4>
-                         <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                     </div>
                  </div>
 
 
@@ -55,74 +63,34 @@
 
                      <div class="swiper-slide">
                          <div class="testimonial-item">
-                             <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                             <h3>Saul Goodman</h3>
+                             <img src="/assets/img/banner/banner1.png" class="" alt="">
+                             <!-- <h3>Saul Goodman</h3>
                              <h4>Ceo &amp; Founder</h4>
                              <p>
                                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
                                  quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
                                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                             </p>
+                             </p> -->
                          </div>
                      </div><!-- End testimonial item -->
 
                      <div class="swiper-slide">
-                         <div class="testimonial-item">
-                             <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                             <h3>Sara Wilsson</h3>
+                         <div class="testimonial-item">                            
+                            <img src="/assets/img/banner/banner2.png" class="" alt="">
+
+                             <!-- <h3>Sara Wilsson</h3>
                              <h4>Designer</h4>
                              <p>
                                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
                                  quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
                                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                             </p>
+                             </p> -->
                          </div>
                      </div><!-- End testimonial item -->
 
-                     <div class="swiper-slide">
-                         <div class="testimonial-item">
-                             <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                             <h3>Jena Karlis</h3>
-                             <h4>Store Owner</h4>
-                             <p>
-                                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                 Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
-                                 tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                             </p>
-                         </div>
-                     </div><!-- End testimonial item -->
-
-                     <div class="swiper-slide">
-                         <div class="testimonial-item">
-                             <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                             <h3>Matt Brandon</h3>
-                             <h4>Freelancer</h4>
-                             <p>
-                                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                 Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
-                                 minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                             </p>
-                         </div>
-                     </div><!-- End testimonial item -->
-
-                     <div class="swiper-slide">
-                         <div class="testimonial-item">
-                             <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                             <h3>John Larson</h3>
-                             <h4>Entrepreneur</h4>
-                             <p>
-                                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                 Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
-                                 labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                             </p>
-                         </div>
-                     </div><!-- End testimonial item -->
-
+                     
                  </div>
                  <div class="swiper-pagination"></div>
              </div>

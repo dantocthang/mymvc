@@ -17,10 +17,16 @@
 
                 </div>
             </div>
+            <div class="mb-5">
+                <a href="/product" class="btn btn-primary">Tất cả sản phẩm</a>
+                <?php foreach( $categories as $category): ?>
+                    <a href="/product?category_name=<?= $category->name?>" class="btn btn-primary"><?=$category->name?></a>
+                <?php endforeach;?>
+            </div>
             <div id="item-list">
                 <?php $this->insert('product/grid', [
                     'products' => $products,
-                    //'paginator' => $paginator
+                    'paginator' => $paginator
                 ]); ?>
             </div>
         </div>
