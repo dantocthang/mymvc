@@ -16,7 +16,11 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <img src="/assets/img/profile/<?= $profile->avatar ?>" alt="Admin" class="rounded-circle" width="150">
+              <?php if ($profile->avatar != NULL) : ?>
+                <img src="/assets/img/profile/<?= $profile->avatar ?>" alt="Avatar" class="rounded-circle" width="150">
+              <?php else : ?>
+                <img src="/assets/img/profile/default_profile_image.png" alt="Avatar" class="rounded-circle" width="150">
+              <?php endif; ?>
               <div class="mt-3">
                 <h4><?= auth()->username ?? null ?></h4>
                 <button class="btn btn-primary">Follow</button>

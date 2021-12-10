@@ -19,7 +19,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="/assets/img/profile/<?= $profile->avatar ?>" alt="Admin" class="rounded-circle" width="150">
+                                <?php if ($profile->avatar != NULL) : ?>
+                                    <img src="/assets/img/profile/<?= $profile->avatar ?>" alt="Avatar" class="rounded-circle" width="150">
+                                <?php else : ?>
+                                    <img src="/assets/img/profile/default_profile_image.png" alt="Avatar" class="rounded-circle" width="150">
+                                <?php endif; ?>
                                 <div id="changeAvatar mt-40">
                                     Select image to upload:
                                     <input type="file" name="imageUpload" id="imageUpload">

@@ -17,7 +17,7 @@ class ProfileController extends BaseController
             redirect('/login');
         $profile = Profile::whereuser_id($user->id)->first();
         if ($profile == null) {
-            return $this->render('user/add');
+            return $this->render('user/edit');
         }
 
         return $this->render('user/show', ['profile' => $profile]);
@@ -31,7 +31,7 @@ class ProfileController extends BaseController
             redirect('/login');
         $profile = Profile::whereuser_id($user->id)->first();
         if ($profile == null) {
-            return $this->render('user/add');
+            return $this->render('user/edit');
         }
 
         return $this->render('user/edit', ['profile' => $profile]);
@@ -41,8 +41,13 @@ class ProfileController extends BaseController
     {
 
         $ok = 1;
-        $user=auth();
+        $user = auth();
         $profile = Profile::whereuser_id($user->id)->first();
+        if ($profile == null) {
+            $profile = new Profile();
+            $profile->user_id = $user->id;
+        }
+
         $attr = [
             "location" => $_POST['location'],
             "bio"  => $_POST['bio'],
@@ -73,11 +78,6 @@ class ProfileController extends BaseController
             $profile->avatar_status = 1;
             $profile->avatar = $_FILES['imageUpload']['name'];
         }
-        if (isset($_POST['showhide'])) {
-            if ($_POST['showhide'] == "show")
-                $profile->avatar_status = 1;
-            else $profile->avatar_status = 0;
-        }
 
         //Avatar           
         $profile->fill($attr);
@@ -86,6 +86,8 @@ class ProfileController extends BaseController
             $profile->save();
             session()->setFlash(\FLASH::SUCCESS, 'Changes saved successfully!');
         }
+
+
 
 
         return $this->render('user/show', ['profile' => $profile]);
