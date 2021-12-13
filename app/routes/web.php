@@ -15,6 +15,9 @@ Router::get('home','App\Controllers\HomeController@index');
 Router::get('login','App\Controllers\Auth\LoginController@showLoginForm');
 Router::post('login','App\Controllers\Auth\LoginController@login');
 
+Router::get('/change-password','App\Controllers\Auth\ChangePasswordController@changePasswordForm');
+Router::post('/change-password','App\Controllers\Auth\ChangePasswordController@changePassword');
+
 Router::get('/logout','\App\Controllers\Auth\LoginController@logout');
 Router::post('/logout','\App\Controllers\Auth\LoginController@logout');
 

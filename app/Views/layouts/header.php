@@ -32,15 +32,16 @@
               </div>
             </a>
             <ul>
-              <li><a href="/logout">Sign out</a></li>
-              <li><a href="/profile">Profile</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/change-password">Đổi mật khẩu</a></li>
+              <li><a href="/profile">Thông tin cá nhân</a></li>
+              <li><a href="/contact">Thông tin liên hệ</a></li>
               <?php if (isset($_SESSION['isAdmin'])) {
                 echo '<li><a href="/admin">Trang quản lý</a></li>';
               }
-
-
               ?>
+              <li><a href="/logout">Đăng xuất</a></li>
+
+
             </ul>
           </li>
         <?php else : ?>
