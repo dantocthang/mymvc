@@ -18,6 +18,7 @@ class ProductController extends BaseController
         if (!$category_name){
             $products = Product::paginate($this->getPerPage());
             $total = Product::count();
+            $category = null;
         }
         else {
             $category = Category::where(['name' => $category_name])->first();
@@ -30,13 +31,13 @@ class ProductController extends BaseController
         $paginator = new Paginator($this->request, $products, $total);
         $paginator->onEachSide(2);
 
-        if ($this->request->ajax()) {
-            $html = $this->view->render('product/grid', ['products' => $products, 'paginator' => $paginator, 'categories' => $categories]);
-            return $this->json([
-                'data' => $html
-            ]);
-        }
-        return $this->render('product/product', ['products' => $products,'paginator' => $paginator, 'categories' => $categories]);
+        // if ($this->request->ajax()) {
+        //     $html = $this->view->render('product/grid', ['products' => $products, 'paginator' => $paginator, 'categories' => $categories]);
+        //     return $this->json([
+        //         'data' => $html
+        //     ]);
+        // }
+        return $this->render('product/product', ['products' => $products,'paginator' => $paginator, 'categories' => $categories, 'category'=>$category]);
     }
 
 
@@ -96,7 +97,7 @@ class ProductController extends BaseController
                 'data' => $html
             ]);
         }
-        return $this->render('product/product', ['products' => $products,'paginator' => $paginator, 'categories' => $categories]);
+        return $this->render('product/product', ['products' => $products,'paginator' => $paginator, 'categories' => $categories, 'keyword' => $keyword]);
 
     }
 }

@@ -8,20 +8,20 @@
 <div class="row">
     <section class="section-products">
         <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-md-8 col-lg-6">
-                    <div class="header">
-                        <h3>Product List</h3>
-                        <h2>Popular Products</h2>
-                    </div>
-
-                </div>
+            <div class="section-title">
+                <h2>Danh sách sản phẩm</h2>
+                
+                <h3><?= $category ?? null ? $category->name : ''?></h3>
             </div>
-            <div class="mb-5">
+            <div class="mb-3">
                 <a href="/product" class="btn btn-primary">Tất cả sản phẩm</a>
-                <?php foreach( $categories as $category): ?>
-                    <a href="/product?category_name=<?= $category->name?>" class="btn btn-primary"><?=$category->name?></a>
-                <?php endforeach;?>
+                <?php foreach ($categories as $category) : ?>
+                    <a href="/product?category_name=<?= $category->name ?>" class="btn btn-primary"><?= $category->name ?></a>
+                <?php endforeach; ?>
+            </div>
+            <div class="mb-3 fs-5">
+                <?=$keyword ?? null ? 'Tìm kiếm cho từ khóa "' . $keyword .'"' : ''?>
+
             </div>
             <div id="item-list">
                 <?php $this->insert('product/grid', [

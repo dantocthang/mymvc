@@ -159,11 +159,18 @@
         color: #fe302f;
     }
 
+    .section-products .single-product .part-2{
+        position: relative;
+        height: 110px;
+    }
+
     .section-products .single-product .part-2 .product-title {
         font-size: 1rem;
     }
 
     .section-products .single-product .part-2 h4 {
+        position: absolute;
+        bottom: 5px;
         display: inline-block;
         font-size: 1rem;
     }

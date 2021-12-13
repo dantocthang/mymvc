@@ -9,7 +9,7 @@
         <form action="/product/search" method="POST">
           <div class="navbar-search search-style-5">
             <div class="search-input">
-              <input name="searchKeyWord" type="text" placeholder="Search" />
+              <input name="searchKeyWord" type="text" placeholder="Nhập tên sản phẩm" />
             </div>
             <div class="search-btn">
               <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -21,9 +21,9 @@
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto active" href="/home">Home</a></li>
+        <li><a class="nav-link scrollto active" href="/home">Trang chủ</a></li>
         <li><a class="nav-link scrollto" href="/product">Sản phẩm</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <!-- <li><a href="contact.html">Contact Us</a></li> -->
         <?php if (auth()) : ?>
           <li class="dropdown"><a href="#">
               <div class="user">
@@ -52,8 +52,8 @@
               </div>
             </a>
             <ul>
-              <li><a href="/login">Sign In</a></li>
-              <li><a href="/register">Register</a></li>
+              <li><a href="/login">Đăng nhập</a></li>
+              <li><a href="/register">Đăng ký</a></li>
             </ul>
           </li>
         <?php endif; ?>
@@ -62,7 +62,7 @@
           <!-- <div class="cart"> -->
 
           <a href="/cart">
-            <div class="cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>Cart</div>
+            <div class="cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>Giỏ hàng</div>
           </a>
           <!-- </div> -->
           <!-- </a> -->

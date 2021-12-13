@@ -13,6 +13,14 @@ class CartController extends BaseController
 {
     public function addToCart()
     {
+        $user = auth();
+        if ($user == null) {
+
+            session()->setFlash(\FLASH::INFO, 'Bạn phải đăng để sử dụng chức năng này');
+
+            redirect('/login');
+        }
+
         $product_id = $this->request->get('id');
         $product = Product::find($product_id);
         $user = auth();
@@ -85,16 +93,16 @@ class CartController extends BaseController
             if ($cartDetail) {
                 if ($cartDetail->delete()) {
                     return $this->json([
-                        'message' => $cartDetail->name . 'has been deleted successfully!'
+                        'message' => 'Sản phẩm '. $cartDetail->name . ' đã được xóa thành công!'
                     ], Response::HTTP_OK);
                 } else {
                     return $this->json([
-                        'message' => 'Unable to delete cartDetail!'
+                        'message' => 'Không thể xóa chi tiết giỏ hàng này'
                     ], Response::HTTP_BAD_REQUEST);
                 }
             }
             return $this->json([
-                'message' => 'cartDetail ID does not exists!'
+                'message' => 'Chi tiết giỏ hàng không tồn tại!'
             ], Response::HTTP_NOT_FOUND);
         }
 
