@@ -41,10 +41,10 @@ class LoginController extends BaseController
 
                 setcookie('credentials', $encrypted, mktime(23, 59, 59, 12, 30, 2021));
             }
-            session()->setFlash(\FLASH::SUCCESS, 'Login successfully!');
+            session()->setFlash(\FLASH::SUCCESS, 'Đăng nhập thành công!');
             $this->redirect('/home');
         }
-        $errors[] = 'Username or password is invalid!';
+        $errors[] = 'Tên đăng nhập hoặc mật khẩu không đúng!';
 
         return $this->render('auth/login', ['errors' => $errors]);
     }
@@ -62,7 +62,7 @@ class LoginController extends BaseController
         $this->signout();
 
         //redirect('/home');
-        session()->setFlash(\FLASH::INFO, 'Bye');
+        session()->setFlash(\FLASH::INFO, 'Tạm biệt');
         $this->redirect('/home');
     }
 }

@@ -73,9 +73,9 @@ class AdminController extends BaseController
             $isExist = Category::wherename($category->name)->first();
             if (!$isExist) {
                 $category->save();
-                session()->setFlash(\FLASH::SUCCESS, 'Category added successfully!');
+                session()->setFlash(\FLASH::SUCCESS, 'Thêm loại sản phẩm thành công');
             } else
-                session()->setFlash(\FLASH::WARNING, 'Category name is already existed!');
+                session()->setFlash(\FLASH::WARNING, 'Loại sản phẩm đã tồn tại');
         }
         return $this->categories();
     }
@@ -90,16 +90,16 @@ class AdminController extends BaseController
             if ($category) {
                 if ($category->delete()) {
                     return $this->json([
-                        'message' => $category->name . 'has been deleted successfully!'
+                        'message' => $category->name . 'đã được xóa thành công!'
                     ], Response::HTTP_OK);
                 } else {
                     return $this->json([
-                        'message' => 'Unable to delete category!'
+                        'message' => 'Không xóa được loại sản phẩm này!'
                     ], Response::HTTP_BAD_REQUEST);
                 }
             }
             return $this->json([
-                'message' => 'Category ID does not exists!'
+                'message' => 'Loại sản phẩm không tồn tại!'
             ], Response::HTTP_NOT_FOUND);
         }
 
@@ -147,10 +147,10 @@ class AdminController extends BaseController
             $isExist = Brand::wherename($brand->name)->first();
             if (!$isExist) {
                 $brand->save();
-                session()->setFlash(\FLASH::SUCCESS, 'Brand added successfully!');
+                session()->setFlash(\FLASH::SUCCESS, 'Thêm hãng sản xuất thành công!');
                 unset($_POST['name']);
             } else
-                session()->setFlash(\FLASH::WARNING, 'Brand name is already existed!');
+                session()->setFlash(\FLASH::WARNING, 'Hãng sản xuất đã tồn tại!');
         }
         unset($_POST['submit']);
         return $this->brands();
@@ -165,16 +165,16 @@ class AdminController extends BaseController
             if ($brand) {
                 if ($brand->delete()) {
                     return $this->json([
-                        'message' => $brand->name . 'has been deleted successfully!'
+                        'message' => $brand->name . 'đã được xóa thành công!'
                     ], Response::HTTP_OK);
                 } else {
                     return $this->json([
-                        'message' => 'Unable to delete brand!'
+                        'message' => 'Không xóa được hãng sản xuất này'
                     ], Response::HTTP_BAD_REQUEST);
                 }
             }
             return $this->json([
-                'message' => 'Brand ID does not exists!'
+                'message' => 'Hãng sản xuất không tồn tại'
             ], Response::HTTP_NOT_FOUND);
         }
 
@@ -192,15 +192,24 @@ class AdminController extends BaseController
             return $this->render(
                 'admin/product-add',
                 [
-                    'product'=> $product,
+                    'product' => $product,
                     'brands' => $brands,
                     'categories' => $categories,
                 ]
             );
         }
 
-        $products = Product::paginate($this->getPerPage());
-        $total = Product::count();
+        $category_name = $_GET['category_name'] ?? null;
+        if (!$category_name) {
+            $products = Product::paginate($this->getPerPage());
+            $total = Product::count();
+        } else {
+            $category = Category::where(['name' => $category_name])->first();
+            $products = Product::where(['category_id' => $category->id])->paginate($this->getPerPage());
+            $total = Product::where(['category_id' => $category->id])->count();
+        }
+
+        $categories = Category::all();
 
         $paginator = new Paginator($this->request, $products, $total, 15);
 
@@ -212,6 +221,7 @@ class AdminController extends BaseController
                 [
                     'products' => $products,
                     'paginator' => $paginator,
+                    'categories' => $categories
                 ]
             );
 
@@ -223,6 +233,7 @@ class AdminController extends BaseController
             [
                 'products' => $products,
                 'paginator' => $paginator,
+                'categories' => $categories
             ]
         );
     }
@@ -261,30 +272,32 @@ class AdminController extends BaseController
                 $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif"
             ) {
-                session()->setFlash(\FLASH::WARNING, 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
+                session()->setFlash(\FLASH::WARNING, 'Lỗi, chỉ định dạng JPG, JPEG, PNG & GIF được cho phép.');
                 $ok = 0;
             }
 
 
             if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
             } else {
-                session()->setFlash(\FLASH::ERROR, 'Your hình ảnh sản phẩm upload has failed!');
+                session()->setFlash(\FLASH::ERROR, 'Hình ảnh sản phẩm tải lên thất bại!');
             }
             if ($ok) {
                 $product = new Product();
                 $product->image = $_FILES['image']['name'];
                 $product->fill($attr);
                 $product->save();
-                session()->setFlash(\FLASH::SUCCESS, 'Changes saved successfully!');
+                session()->setFlash(\FLASH::SUCCESS, 'Thay đổi đã được lưu!');
+                redirect('/admin/products');
             } else
                 session()->setFlash(\FLASH::ERROR, 'Không thêm được sản phẩm');
-        }
-        return $this->products();
+        } else
+            session()->setFlash(\FLASH::ERROR, 'Bạn phải thêm hình ảnh cho sản phẩm');
+        return $this->showAddProduct();
     }
 
     public function editProduct()
     {
-        $product_id = $_POST['product-id'];  
+        $product_id = $_POST['product-id'];
         $product = Product::find($product_id);
         $ok = 1;
         $attr = [
@@ -295,7 +308,7 @@ class AdminController extends BaseController
             "description" => $_POST['description'],
         ];
 
-        // Avatar
+        // Product image
         if (($_FILES['image']['name']) != null) {
             $uploaddir = 'assets/img/product/';
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
@@ -305,27 +318,25 @@ class AdminController extends BaseController
                 $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif"
             ) {
-                session()->setFlash(\FLASH::WARNING, 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
+                session()->setFlash(\FLASH::WARNING, 'Lỗi, chỉ định dạng JPG, JPEG, PNG & GIF được cho phép.');
                 $ok = 0;
             }
 
 
             if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
             } else {
-                session()->setFlash(\FLASH::ERROR, 'Your hình ảnh sản phẩm upload has failed!');
+                session()->setFlash(\FLASH::ERROR, 'Hình ảnh sản phẩm tải lên thất bại!');
             }
             if ($ok) {
                 $product->image = $_FILES['image']['name'];
-                
-            } else
-                session()->setFlash(\FLASH::ERROR, 'Không thêm hình ảnh');
+            }
         }
 
         $product->fill($attr);
         $product->save();
-        session()->setFlash(\FLASH::SUCCESS, 'Changes saved successfully!');
+        session()->setFlash(\FLASH::SUCCESS, 'Thay đổi đã được lưu!');
 
-        return $this->products();
+        redirect('/admin/products');
     }
 
     public function deleteProduct()
@@ -336,16 +347,16 @@ class AdminController extends BaseController
             if ($product) {
                 if ($product->delete()) {
                     return $this->json([
-                        'message' => $product->name . 'has been deleted successfully!'
+                        'message' => $product->name . 'đã được xóa thành công!'
                     ], Response::HTTP_OK);
                 } else {
                     return $this->json([
-                        'message' => 'Unable to delete Product!'
+                        'message' => 'Không thể xóa sản phẩm này!'
                     ], Response::HTTP_BAD_REQUEST);
                 }
             }
             return $this->json([
-                'message' => 'Product ID does not exists!'
+                'message' => 'Sản phẩm không tồn tại!'
             ], Response::HTTP_NOT_FOUND);
         }
 

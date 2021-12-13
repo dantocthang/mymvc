@@ -16,22 +16,22 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Liên kết</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="/">Trang chủ</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="/product">Sản phẩm</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Chính sách bảo hành</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Chính sách thanh toán</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Chính sách sách giao hàng</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Sản phẩm của chúng tôi</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Điện thoại</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Laptop</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Máy tính bảng</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="/product?category_name=Smartphone">Điện thoại</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="/product?category_name=Laptop">Laptop</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="/product?category_name=Tablet">Máy tính bảng</a></li>
             </ul>
           </div>
 
@@ -39,11 +39,11 @@
             <h4>Mạng xã hội</h4>
             <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fab fa-skype"></i></a>
+              <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
             </div>
           </div>
 

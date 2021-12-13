@@ -36,25 +36,25 @@ class RegisterController extends BaseController
 
         $pattern = '/^[a-zA-Z0-9_]{6,20}$/';
         if (!preg_match($pattern, $params['username'])) {
-            $errors['username'] = "Only letters, numbers, userscore and at least 6 characters long allowed!";
+            $errors['username'] = "Tên đăng nhập chỉ gồm chữ cái, chữ số, dấu gạch dưới (_), và có độ dài ít nhất 6 ký tự";
         }
 
         if (!filter_var($params['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = "Invalid email format";
+            $errors['email'] = "Sai định dạng email";
         }
 
         $pattern = '/^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/';
         if (!preg_match($pattern, $params['password'])) {
-            $errors['password'] = "Password must contains at least one capitalize letter, number and special charater.";
+            $errors['password'] = "Mật khẩu phải chứa ít nhất 1 ký tự in hoa, một con số, 1 ký tự đặc biệt và dài ít nhất 8 ký tự!";
         }
 
         if ($params['password'] != $params['confirm_password']) {
-            $errors['confirm_password'] = "Password does not match.";
+            $errors['confirm_password'] = "Mật khẩu nhập lại không đúng";
         }
 
         $exist = $this->checkUsername($params['username']);
         if ($exist) {
-            $errors['username'] = "This username is already taken. Please choose another one.";
+            $errors['username'] = "Tên đăng nhập đã tồn tại, vui lòng chọn tên khác!";
         } 
         
         if(empty($errors)){
@@ -69,7 +69,7 @@ class RegisterController extends BaseController
             $roleUser->role_id = 2;
             $roleUser->save(); 
             $isSuccess = true;
-            $message['success'] = "Congratulations, your account has been created successfully.";
+            $message['success'] = "Chúc mừng, tài khoản của bạn đã được tạo thành công";
         }
 
         if ($isSuccess && empty($errors)) {

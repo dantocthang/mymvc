@@ -19,7 +19,7 @@
                 <form id="form1" name="reg_form" class="" method="post" action="/register">
 
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                        <p class="lead fw-normal mb-0 me-3">Register</p>
+                        <p class="lead fw-normal mb-0 me-3">Đăng ký</p>
 
                     </div>
 
@@ -29,8 +29,8 @@
 
                     <!-- Username input -->
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="username">Username</label>
-                        <input type="text" name="username" value="<?= $params['username'] ?? null ?>" id="username" class="form-control form-control-lg <?= isset($errors['username']) ? 'is-invalid' : '' ?>" placeholder="Enter username" />
+                        <label class="form-label" for="username">Tên đăng nhập</label>
+                        <input type="text" name="username" value="<?= $params['username'] ?? null ?>" id="username" class="form-control form-control-lg <?= isset($errors['username']) ? 'is-invalid' : '' ?>" placeholder="Tên đăng nhập" />
                         <div class="invalid-feedback ">
                             <?= $errors['username'] ?? null; ?>
                         </div>
@@ -41,7 +41,7 @@
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" for="email">Email</label>
-                        <input type="email" name="email" value="<?=$params['email'] ?? null?>" id="email" class="form-control form-control-lg <?= isset($errors['email']) ? 'is-invalid' : '' ?>" placeholder="Enter email" />
+                        <input type="email" name="email" value="<?=$params['email'] ?? null?>" id="email" class="form-control form-control-lg <?= isset($errors['email']) ? 'is-invalid' : '' ?>" placeholder="Nhập email" />
                         <div id="ivl" class="invalid-feedback email-error">
                             <?= $errors['email'] ?? null; ?>
                         </div>
@@ -51,8 +51,8 @@
 
                     <!-- Password input -->
                     <div class="form-outline mb-3">
-                        <label class="form-label" for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control form-control-lg <?= isset($errors['password']) ? 'is-invalid' : '' ?>" placeholder="Enter password" />
+                        <label class="form-label" for="password">Mật khẩu</label>
+                        <input type="password" name="password" id="password" class="form-control form-control-lg <?= isset($errors['password']) ? 'is-invalid' : '' ?>" placeholder="Nhập mật khẩu" />
                         <div class="invalid-feedback password-error">
                             <?= $errors['password'] ?? null; ?>
                         </div>
@@ -61,8 +61,8 @@
 
                     <!-- Re enter Password input -->
                     <div class="form-outline mb-3">
-                        <label class="form-label" for="confirm_password">Password</label>
-                        <input type="password" name="confirm_password" id="confirm_password" class="form-control form-control-lg <?= isset($errors['confirm_password']) ? 'is-invalid' : '' ?>" placeholder="Re enter password" />
+                        <label class="form-label" for="confirm_password">Nhập lại mật khẩu</label>
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control form-control-lg <?= isset($errors['confirm_password']) ? 'is-invalid' : '' ?>" placeholder="Nhập lại mật khẩu" />
                         <div class="invalid-feedback confirm_password-error">
                             <p id="confirm_password_err"></p>
                             <?= $errors['confirm_password'] ?? null; ?>
@@ -74,18 +74,18 @@
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" value="" id="terms" required>
                             <label for="terms" class="form-check-label">
-                                Agree to terms and conditions
+                                Đồng ý với điều khoản và dịch vụ
                             </label>
                             <div class="invalid-feedback">
-                                You must agree before submitting
+                                Bạn phải đồng ý với điều khoản và dịch vụ mới có thể đăng ký
                             </div>
                         </div>
                     </div>
 
 
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="/login" class="link-danger">Login here!</a></p>
+                        <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng ký</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Đã có tài khoản? <a href="/login" class="link-danger">Đăng nhập!</a></p>
                     </div>
 
                 </form>

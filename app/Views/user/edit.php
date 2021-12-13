@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-10">
-            <h3>Profile</h3>
+            <h3>Chỉnh sửa thông tin cá nhân</h3>
         </div>
     </div>
     <form action="/edit-profile" method="post" enctype="multipart/form-data">
@@ -27,13 +27,13 @@
                                     <img src="/assets/img/profile/default_profile_image.png" alt="Avatar" class="rounded-circle" width="150">
                                 <?php endif; ?>
                                 <div id="changeAvatar mt-40">
-                                    Select image to upload:
+                                    Chọn ảnh để tải lên:
                                     <input type="file" name="imageUpload" id="imageUpload">
                                 </div>
                                 <div class="mt-3">
                                     <h4><?= auth()->username ?></h4>
-                                    <button class="btn btn-primary">Follow</button>
-                                    <button class="btn btn-outline-primary">Message</button>
+                                    <button class="btn btn-primary">Theo dõi</button>
+                                    <button class="btn btn-outline-primary">Nhắn tin</button>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Username</h6>
+                                    <h6 class="mb-0">Tên đăng nhập</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <?= auth()->username ?? null ?>
@@ -69,7 +69,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Location</h6>
+                                    <h6 class="mb-0">Vị trí</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input class="form-input" name="location" id="location" type="text" value="<?= $profile->location ?? null ?>">
@@ -78,7 +78,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Biography</h6>
+                                    <h6 class="mb-0">Tiểu sử</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input class="form-input" name="bio" id="bio" type="text" value="<?= $profile->bio ?? null ?>">
@@ -87,7 +87,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Date add</h6>
+                                    <h6 class="mb-0">Ngày tạo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <?= $profile->created_at ?? null ?>
@@ -96,7 +96,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-info " type="submit">Save</button>
+                                    <button class="btn btn-info " type="submit">Lưu</button>
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10">
-      <h3>Profile</h3>
+      <h3>Thông tin cá nhân</h3>
     </div>
   </div>
   <div class="main-body">
@@ -25,8 +25,8 @@
               <?php endif; ?>
               <div class="mt-3">
                 <h4><?= auth()->username ?? null ?></h4>
-                <button class="btn btn-primary">Follow</button>
-                <button class="btn btn-outline-primary">Message</button>
+                <button class="btn btn-primary">Theo dõi</button>
+                <button class="btn btn-outline-primary">Nhắn tin</button>
               </div>
             </div>
           </div>
@@ -34,15 +34,11 @@
         <div class="card mt-3">
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-              <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>Github</h6>
+              <i class="fab fa-github" style="font-size: 24px;">Github</i>
               <span class="text-secondary"><?= $profile->github_username ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-              <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter mr-2 icon-inline text-info">
-                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                </svg>Twitter</h6>
+            <i class="fab fa-twitter" style="font-size: 24px;">Twitter</i>
               <span class="text-secondary"><?= $profile->twitter_username ?></span>
             </li>
           </ul>
@@ -53,7 +49,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Username</h6>
+                <h6 class="mb-0">Tên đăng nhập</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 <?= auth()->username ?? null ?>
@@ -62,7 +58,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Location</h6>
+                <h6 class="mb-0">Vị trí</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 <?= $profile->location ?? null ?>
@@ -71,7 +67,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Biography</h6>
+                <h6 class="mb-0">Tiểu sử</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 <?= $profile->bio ?? null ?>
@@ -80,7 +76,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Date add</h6>
+                <h6 class="mb-0">Ngày tạo</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 <?= $profile->created_at ?? null ?>
@@ -89,7 +85,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-12">
-                <a class="btn btn-info " href="<?= request()->baseUrl() ?>/edit-profile">Edit</a>
+                <a class="btn btn-info " href="<?= request()->baseUrl() ?>/edit-profile">Chỉnh sửa</a>
               </div>
             </div>
           </div>

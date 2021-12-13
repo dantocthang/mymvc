@@ -65,14 +65,14 @@ class ProfileController extends BaseController
                 $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif"
             ) {
-                session()->setFlash(\FLASH::WARNING, 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
+                session()->setFlash(\FLASH::WARNING, 'Lỗi, chỉ định dạng JPG, JPEG, PNG & GIF được cho phép.');
                 $ok = 0;
             }
 
 
             if (move_uploaded_file($_FILES['imageUpload']['tmp_name'], $uploadfile)) {
             } else {
-                session()->setFlash(\FLASH::ERROR, 'Your avatar upload has failed!');
+                session()->setFlash(\FLASH::ERROR, 'Thay đổi ảnh đại diện thất bại');
             }
 
             $profile->avatar_status = 1;
@@ -84,11 +84,8 @@ class ProfileController extends BaseController
 
         if ($ok == 1) {
             $profile->save();
-            session()->setFlash(\FLASH::SUCCESS, 'Changes saved successfully!');
+            session()->setFlash(\FLASH::SUCCESS, 'Thay đổi đã được lưu');
         }
-
-
-
 
         return $this->render('user/show', ['profile' => $profile]);
     }
