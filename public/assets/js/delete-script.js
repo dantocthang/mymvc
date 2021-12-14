@@ -17,13 +17,13 @@
     // hàm hiển thị thông báo SweetAlert xác nhận xoá
     function showConfirm(e) {
         Swal.fire({
-            title: 'Are you sure?',
-            html: "<p>Delete <b>" + $(e).data('name') + "</b></p> <p>You won't be able to revert this!</p>",
+            title: 'Bạn chắc chứ?',
+            html: "<p>Xóa <b>" + $(e).data('name') + "</b></p> <p>Bạn sẽ không thể hoàn tác!</p>",
             icon: 'warning',
             showCancelButton: true,
             cancelButtonColor: '#3085d6',
             confirmButtonColor: '#d33',
-            confirmButtonText: 'Confirm'
+            confirmButtonText: 'Xác nhận'
         }).then((result) => {
             if (result.isConfirmed) {
                 ajaxDelete(e);
@@ -76,30 +76,11 @@
             $(target).html(response.data);
         }).fail(function() {
             Swal.fire(
-                'Error',
-                'Unable to reload the Product list. Try again.',
-                'error'
+                'Lỗi',
+                'Không thể tải lại danh sách!.',
+                'Lỗi'
             )
         });
     }
 
-    // Show Modal dialog xác nhận xoá
-    function showModalConfirm(e) {
-        var deleteModal = new bootstrap.Modal($('#confirmDeleteModal'), {
-            keyboard: false
-        });
-
-        // pass các ID và Return URL qua form trong Modal
-        // lấy url trong thẻ <a> gán vào action của form
-        let url = $(e).prop('href');
-        $("#deleteForm").prop('action', url);
-
-        // lấy thuộc tính data-id="" trong thẻ <a> gán vào hidden input trên form trong modal
-        $("#ward-id").val($(e).data('id'));
-        $("#return-url").val($(e).data('return-url'));
-        let msg = 'Are you sure you want to delete ' + $(e).data('name') + '?';
-        $("#delete-message").text(msg);
-
-        deleteModal.show();
-
-    }
+    

@@ -50,13 +50,19 @@ Router::get('/admin/products/add','App\Controllers\AdminController@showAddProduc
 Router::post('/admin/products/add','App\Controllers\AdminController@addProduct');
 
 Router::post('/admin/products/edit','App\Controllers\AdminController@editProduct');
-
 Router::post('/admin/products/delete','App\Controllers\AdminController@deleteProduct');
+
+Router::get('/admin/users','App\Controllers\AdminController@showUserList');
+Router::get('/admin/roles','App\Controllers\AdminController@showRoleList');
+Router::post('/admin/roles/delete','App\Controllers\AdminController@deleteRoleUser');
+Router::post('/admin/roles','App\Controllers\AdminController@addRoleUser');
 
 
 Router::get('/product/add-to-cart','App\Controllers\CartController@addToCart');
 Router::get('/cart','App\Controllers\CartController@cart');
 Router::post('/cart/delete','App\Controllers\CartController@delete');
+
+
 
 Router::error(function(){
     echo '404 :: Page Not Found';

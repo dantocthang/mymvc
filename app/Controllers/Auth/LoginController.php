@@ -30,7 +30,7 @@ class LoginController extends BaseController
             $_SESSION['user'] = serialize($user);
             $isAdmin = Role_user::Where(['role_id' => 1, 'user_id' => $user->id])->first();
             if($isAdmin)
-            $_SESSION['isAdmin'] = true;
+            $_SESSION['isAdmin'] = ENCRYPTION_KEY;
             //session()->set('user',serialize($user));
 
             if (isset($_POST['remember_me'])) {

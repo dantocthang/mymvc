@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-10 row align-items-start ">
-            <div class="col-4 mt-2 ">
+            <div class="col-10 mt-2 ">
             <a href="/admin/products" class="btn btn-primary">Tất cả sản phẩm</a>
             <?php foreach( $categories as $category): ?>
                     <a href="/admin/products?category_name=<?= $category->name?>" class="btn btn-primary"><?=$category->name?></a>

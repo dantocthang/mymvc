@@ -107,6 +107,7 @@
                  <h3>Điện thoại</h3>
              </div>
 
+
              <div class="row">
                  <div class="container px-4 px-lg-5 mt-5">
                      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -114,22 +115,24 @@
                              <div class="col mb-5">
                                  <div class="card h-100">
                                      <!-- Product image-->
-                                     <a href="<?= request()->baseUrl() ?>/product/detail?id=<?= $smartphone->id ?>">
-                                     <img class="card-img-top custom-card-img" src="<?= request()->baseUrl() ?>/assets/img/product/<?= $smartphone->image ?>" alt="Smartphone" />
-                                     </a>
+
                                      <!-- Product details-->
-                                     <div class="card-body p-4">
+                                     <div class="card-body custom-body-1 p-4">
+                                         <a href="<?= request()->baseUrl() ?>/product/detail?id=<?= $smartphone->id ?>">
+                                             <img class="card-img-top custom-card-img" src="<?= request()->baseUrl() ?>/assets/img/product/<?= $smartphone->image ?>" alt="Smartphone" />
+                                         </a>
+                                     </div>
+                                     <!-- Product actions-->
+                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                          <div class="text-center">
                                              <!-- Product name-->
                                              <h5 class="fw-bolder"><?= $smartphone->name ?></h5>
                                              <!-- Product price-->
                                              <?= $smartphone->price ?>
                                          </div>
-                                     </div>
-                                     <!-- Product actions-->
-                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                          <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="<?= request()->baseUrl() ?>/product/detail?id=<?= $smartphone->id ?>">Chi tiết</a></div>
                                      </div>
+
                                  </div>
                              </div>
                          <?php endforeach; ?>
@@ -150,20 +153,21 @@
                              <div class="col mb-5">
                                  <div class="card h-100">
                                      <!-- Product image-->
-                                     <a href="<?= request()->baseUrl() ?>/product/detail?id=<?= $tablet->id ?>">
-                                     <img class="card-img-top" src="<?= request()->baseUrl() ?>/assets/img/product/<?= $tablet->image ?>" alt="tablet" />
-                                     </a>
+
                                      <!-- Product details-->
                                      <div class="card-body p-4">
+                                         <a href="<?= request()->baseUrl() ?>/product/detail?id=<?= $tablet->id ?>">
+                                             <img class="card-img-top" src="<?= request()->baseUrl() ?>/assets/img/product/<?= $tablet->image ?>" alt="tablet" />
+                                         </a>
+                                     </div>
+                                     <!-- Product actions-->
+                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                          <div class="text-center">
                                              <!-- Product name-->
                                              <h5 class="fw-bolder"><?= $tablet->name ?></h5>
                                              <!-- Product price-->
                                              <?= $tablet->price ?>
                                          </div>
-                                     </div>
-                                     <!-- Product actions-->
-                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                          <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="<?= request()->baseUrl() ?>/product/detail?id=<?= $tablet->id ?>">Chi tiết</a></div>
                                      </div>
                                  </div>
@@ -187,20 +191,21 @@
                              <div class="col mb-5">
                                  <div class="card h-100">
                                      <!-- Product image-->
-                                     <a href="<?= request()->baseUrl() ?>/product/detail?id=<?= $laptop->id ?>">
-                                     <img class="card-img-top" src="<?= request()->baseUrl() ?>/assets/img/product/<?= $laptop->image ?>" alt="laptop" />
-                                     </a>
+
                                      <!-- Product details-->
                                      <div class="card-body p-4">
+                                         <a href="<?= request()->baseUrl() ?>/product/detail?id=<?= $laptop->id ?>">
+                                             <img class="card-img-top" src="<?= request()->baseUrl() ?>/assets/img/product/<?= $laptop->image ?>" alt="laptop" />
+                                         </a>
+                                     </div>
+                                     <!-- Product actions-->
+                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                          <div class="text-center">
                                              <!-- Product name-->
                                              <h5 class="fw-bolder"><?= $laptop->name ?></h5>
                                              <!-- Product price-->
                                              <?= $laptop->price ?>
                                          </div>
-                                     </div>
-                                     <!-- Product actions-->
-                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                          <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="<?= request()->baseUrl() ?>/product/detail?id=<?= $laptop->id ?>">Chi tiết</a></div>
                                      </div>
                                  </div>
@@ -235,7 +240,7 @@
                  <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                      <div class="count-box">
                          <i class="bi bi-journal-richtext"></i>
-                         <span data-purecounter-start="0" data-purecounter-end="<?=$count['pcount']?>" data-purecounter-duration="1" class="purecounter"></span>
+                         <span data-purecounter-start="0" data-purecounter-end="<?= $count['pcount'] ?>" data-purecounter-duration="1" class="purecounter"></span>
                          <p>Sản phẩm</p>
                      </div>
                  </div>
@@ -243,7 +248,7 @@
                  <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                      <div class="count-box">
                          <i class="bi bi-headset"></i>
-                         <span data-purecounter-start="0" data-purecounter-end="<?=$count['bcount']?>" data-purecounter-duration="1" class="purecounter"></span>
+                         <span data-purecounter-start="0" data-purecounter-end="<?= $count['bcount'] ?>" data-purecounter-duration="1" class="purecounter"></span>
                          <p>Đối tác</p>
                      </div>
                  </div>
@@ -443,7 +448,7 @@
              <div class="row" data-aos="fade-up" data-aos-delay="100">
 
                  <div class="col-lg-6 ">
-                     <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15715.366073286777!2d105.7706153!3d10.0299337!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9d76b0035f6d53d0!2zxJDhuqFpIGjhu41jIEPhuqduIFRoxqE!5e0!3m2!1svi!2s!4v1639362630088!5m2!1svi!2s"  frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+                     <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15715.366073286777!2d105.7706153!3d10.0299337!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9d76b0035f6d53d0!2zxJDhuqFpIGjhu41jIEPhuqduIFRoxqE!5e0!3m2!1svi!2s!4v1639362630088!5m2!1svi!2s" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
                  </div>
 
                  <div class="col-lg-6">

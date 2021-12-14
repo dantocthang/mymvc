@@ -35,7 +35,7 @@
                 </div>
                 <div class="center">
                     <div class="buttons d-flex flex-row">
-                        <div class="cart"><i class="fa fa-shopping-cart" style="font-size: 2rem;"></i></div>
+                        <div class="cart-detail"><i class="fa fa-shopping-cart" style="font-size: 2rem;"></i></div>
                         <a href="/product/add-to-cart?id=<?=$detail->id?>">
                             <button class="btn btn-primary cart-button px-5"><span class="dot"></span>Add to cart </button>
                         </a>
@@ -78,7 +78,7 @@
             box-shadow: none
         }
 
-        .cart {
+        .cart-detail {
             position: relative;
             height: 48px !important;
             width: 50px;

@@ -82,7 +82,7 @@
 
     <!-- Template Main JS File -->
     <script src="<?= request()->baseUrl(); ?>/assets/js/main.js"></script>
-    <script src="<?= request()->baseUrl(); ?>/assets/js/product-delete-script.js"></script>
+    <script src="<?= request()->baseUrl(); ?>/assets/js/delete-script.js"></script>
 
     <?= $this->insert('layouts/notifications'); ?>
     <?= $this->section('js') ?>

@@ -7,7 +7,7 @@
     'smartphones' => $smartphones,
     'tablets' => $tablets,
     'laptops' => $laptops,
-    'count'=>$count
+    'count' => $count
 ]); ?>
 <?php $this->stop() ?>
 <!-- Chèn script vào vị trí section("js") trong layout default -->

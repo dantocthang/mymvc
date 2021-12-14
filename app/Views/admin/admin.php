@@ -42,6 +42,18 @@
             </div>
 
 
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                <a href="/admin/users">
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon"><i class="fas fa-users-cog"></i></div>
+                        <h4 class="title">Quyền người dùng</h4>
+                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                    </div>
+                </a>
+
+            </div>
+
+
         </div>
 
     </div>

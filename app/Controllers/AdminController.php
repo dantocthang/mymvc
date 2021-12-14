@@ -4,12 +4,12 @@ namespace App\Controllers;
 
 use App\Http\Paginator;
 use App\Http\Response;
-use App\Models\Role;
+use App\Models\User;
 use App\Models\Role_user;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
-
+use App\Models\Role;
 
 // use App\Models\City;
 // use App\Models\District;
@@ -26,7 +26,7 @@ class AdminController extends BaseController
             redirect('/login');
 
         // $isAdmin = Role_user::Where(['role_id' => 1, 'user_id' => $user->id])->first();
-        if ($_SESSION['isAdmin'])
+        if ($_SESSION['isAdmin'] == ENCRYPTION_KEY)
             return $this->render('admin/admin', []);
         else
             redirect('/home');
@@ -34,6 +34,8 @@ class AdminController extends BaseController
 
     public function categories()
     {
+        if ($_SESSION['isAdmin'] != ENCRYPTION_KEY)
+            redirect('/home');
         unset($_POST);
         $categories = Category::paginate($this->getPerPage());
         $total = Category::count();
@@ -109,7 +111,8 @@ class AdminController extends BaseController
 
     public function brands()
     {
-
+        if ($_SESSION['isAdmin'] != ENCRYPTION_KEY)
+            redirect('/home');
         $brands = Brand::paginate($this->getPerPage());
         $total = Brand::count();
 
@@ -185,6 +188,8 @@ class AdminController extends BaseController
 
     public function products()
     {
+        if ($_SESSION['isAdmin'] != ENCRYPTION_KEY)
+            redirect('/home');
         if (isset($_GET['product-id'])) {
             $product = Product::find($_GET['product-id']);
             $categories = Category::all();
@@ -329,6 +334,7 @@ class AdminController extends BaseController
             }
             if ($ok) {
                 $product->image = $_FILES['image']['name'];
+                
             }
         }
 
@@ -363,4 +369,123 @@ class AdminController extends BaseController
         $return_url = $this->request->post('return_url', '/home');
         return $this->redirect($return_url);
     }
+
+
+    public function showUserList()
+    {
+        if ($_SESSION['isAdmin'] != ENCRYPTION_KEY)
+            redirect('/home');
+        $users = User::paginate($this->getPerPage());
+        $total = User::count();
+        $paginator = new Paginator($this->request, $users, $total, 15);
+        $paginator->onEachSide(2);
+        $this->render('/admin/user', ['users' => $users, 'paginator' => $paginator]);
+    }
+
+    public function showRoleList()
+    {
+        $roles=Role::all();
+        if ($_SESSION['isAdmin'] != ENCRYPTION_KEY)
+            redirect('/home');
+        $user_id = $this->request->get('user_id') ?? null;
+        if ($user_id == null) {
+            redirect('/admin/users');
+        }
+        $user = User::find($user_id);
+        $roleUsers = Role_user::whereuser_id($user_id)->paginate($this->getPerPage());
+        $total = Role_user::whereuser_id($user_id)->count();
+        $paginator = new Paginator($this->request, $roleUsers, $total, 15);
+        $paginator->onEachSide(2);
+        if ($this->request->ajax()) {
+            $html = $this->view->render(
+                'admin/role-list',
+                [
+                    'roleUsers' => $roleUsers,
+                    'paginator' => $paginator,
+                ]
+            );
+
+            return $this->json(['data' => $html]);
+        }
+
+        return $this->render(
+            'admin/role',
+            [
+                'roleUsers' => $roleUsers,
+                'paginator' => $paginator,
+                'user' => $user,
+                'roles'=>$roles
+            ]
+        );
+    }
+
+    public function deleteRoleUser()
+    {
+        $editor = auth();
+        $id = $this->request->post('id');
+        $roleUser = Role_user::find($id);
+        if ($this->request->ajax()) {
+            if ($roleUser) {
+                if ($editor->id == $roleUser->user_id) {
+                    return $this->json([
+                        'message' => 'Bạn không thể xóa quyền của chính mình!'
+                    ], Response::HTTP_BAD_REQUEST);
+                }
+                if ($roleUser->delete()) {
+                    return $this->json([
+                        'message' => $roleUser->name . 'đã được xóa thành công!'
+                    ], Response::HTTP_OK);
+                } else {
+                    return $this->json([
+                        'message' => 'Không thể xóa quyền người dùng này!'
+                    ], Response::HTTP_BAD_REQUEST);
+                }
+            }
+            return $this->json([
+                'message' => 'Quyền người dùng không tồn tại!'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $return_url = $this->request->post('return_url', '/home');
+        return $this->redirect($return_url);
+    }
+
+
+    public function addRoleUser(){
+        $success=1;
+        $user_id=$this->request->get('user_id') ?? null;
+        if ($user_id){
+            $isExist=User::find($user_id);
+            if ($isExist){
+                $roleUsers=Role_user::whereuser_id($user_id)->get();
+                $role_id=$_POST['role'];
+                foreach ($roleUsers as $item){
+                    if ($item->role->id==$role_id){
+                        $success=0;
+                        break;
+                    }
+                }
+                if ($success==1){
+                    $roleUser=new Role_user();
+                    $roleUser->role_id=$role_id;
+                    $roleUser->user_id=$user_id;
+                    $roleUser->save();
+                    session()->setFlash(\FLASH::SUCCESS, 'Thêm quyền thành công!');
+                }
+                else{
+                    session()->setFlash(\FLASH::ERROR, 'Người dùng đã có quyền này!');
+                }
+            }
+            else{
+                session()->setFlash(\FLASH::ERROR, 'Người dùng không tồn tại!');
+            }
+        }
+        else{
+            session()->setFlash(\FLASH::ERROR, 'Người dùng không tồn tại!');
+        }
+        redirect('/admin/roles?user_id=' . $user_id);
+
+
+    }
+    
 }
