@@ -36,7 +36,7 @@ class CartController extends BaseController
             $cartDetail->price = $product->price;
             $cartDetail->save();
         } else {
-            $item = CartDetail::whereproduct_id($product_id)->first();
+            $item = CartDetail::where(['cart_id'=>$cart->id,'product_id'=>$product_id])->first();
             if ($item != null) {
                 $item->amount++;
                 $item->save();
