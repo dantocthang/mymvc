@@ -8,7 +8,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-10">
+    <div class="section-title">
       <h3>Thông tin cá nhân</h3>
     </div>
   </div>
@@ -38,7 +38,7 @@
               <span class="text-secondary"><?= $profile->github_username ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-            <i class="fab fa-twitter" style="font-size: 24px;">Twitter</i>
+              <i class="fab fa-twitter" style="font-size: 24px;">Twitter</i>
               <span class="text-secondary"><?= $profile->twitter_username ?></span>
             </li>
           </ul>

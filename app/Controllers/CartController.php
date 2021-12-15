@@ -62,8 +62,12 @@ class CartController extends BaseController
 
             redirect('/login');
         }
-        $cart = Cart::whereuser_id($user->id)->first();
+        $cart = Cart::whereuser_id($user->id)->first() ?? null;
+        if ($cart==null){
+            $cart=new Cart();
+        }
         $cartDetails = CartDetail::wherecart_id($cart->id)->paginate($this->getPerPage());
+        $count=CartDetail::wherecart_id($cart->id)->count();
         $items = CartDetail::wherecart_id($cart->id)->get();
         $total_price = 0;
         foreach ($items as $item) {
@@ -74,14 +78,14 @@ class CartController extends BaseController
         $paginator->onEachSide(2);
 
         if ($this->request->ajax()) {
-            $html = $this->view->render('cart/cart-list', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price]);
+            $html = $this->view->render('cart/cart-list', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price,'count'=>$count]);
             //print_r($html);
             return $this->json([
                 'data' => $html
             ]);
         }
 
-        return $this->render('cart/cart', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price]);
+        return $this->render('cart/cart', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price,'count'=>$count]);
     }
 
 

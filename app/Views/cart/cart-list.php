@@ -15,28 +15,27 @@
             <?php foreach ($cartDetails as $cartDetail) : ?>
                 <tr>
                     <th scope="row"><?= $start++; ?></th>
-                    <td><img src="<?=request()->baseUrl()?>/assets/img/product/<?=$cartDetail->product->image?>" alt="ảnh sản phẩm" class="cartDetail-img"></td>
+                    <td><img src="<?= request()->baseUrl() ?>/assets/img/product/<?= $cartDetail->product->image ?>" alt="ảnh sản phẩm" class="cartDetail-img"></td>
                     <td><?= $cartDetail->product->name; ?></td>
                     <td><?= $cartDetail->price ?></td>
                     <td><?= $cartDetail->amount ?></td>
                     <td>
-                        <a class="delete" 
-                        href="<?= request()->baseUrl(); ?>/cart/delete" 
-                        data-id="<?= $cartDetail->id; ?>" 
-                        title="Delete <?= $cartDetail->product->name; ?>" 
-                        data-name="<?= $cartDetail->product->name; ?>" 
-                        data-return-url="<?= request()->fullUrl(); ?>">
-                        <i class="fas fa-times fa-2xl" style="font-size: 2rem;"></i>
+                        <a class="delete" href="<?= request()->baseUrl(); ?>/cart/delete" data-id="<?= $cartDetail->id; ?>" title="Delete <?= $cartDetail->product->name; ?>" data-name="<?= $cartDetail->product->name; ?>" data-return-url="<?= request()->fullUrl(); ?>">
+                            <i class="fas fa-times fa-2xl" style="font-size: 2rem;"></i>
                         </a>
-                        
+
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <?php if ($cartDetails): ?>
-        <h3 id="total">Tổng giá tiền: <?=$total_price?> VNĐ</h3>
-    <?php endif; ?>
+    <div class="d-flex justify-content-between">
+        <?php if ($cartDetails && $count) : ?>
+            <button type="button" class="btn btn-primary check-out-btn">Thanh toán</button>
+
+        <?php endif; ?>
+        <h3 id="total">Tổng giá tiền: <?= $total_price ?> VNĐ</h3>
+    </div>
 </div>
 
 
@@ -46,16 +45,15 @@
 </div>
 
 <style>
-    table > thead{
+    table>thead {
         vertical-align: top !important;
     }
 
-    .cartDetail-img{
+    .cartDetail-img {
         height: 10rem;
     }
 
-    #total{
+    #total {
         text-align: right;
     }
-
 </style>

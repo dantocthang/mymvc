@@ -9,7 +9,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-10">
+        <div class="section-title">
             <h3>Chỉnh sửa thông tin cá nhân</h3>
         </div>
     </div>

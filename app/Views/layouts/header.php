@@ -34,7 +34,7 @@
             <ul>
               <li><a href="/change-password">Đổi mật khẩu</a></li>
               <li><a href="/profile">Thông tin cá nhân</a></li>
-              <li><a href="/contact">Thông tin liên hệ</a></li>
+             
               <?php if (isset($_SESSION['isAdmin'])) {
                 echo '<li><a href="/admin">Trang quản lý</a></li>';
               }

@@ -13,7 +13,7 @@ trait PaginatorTrait
             $perPage = session()->get('per-page', null);
             if (!$perPage) {
                 // get from config
-                $perPage = config('view.page.per-page', 15);
+                $perPage = config('view.page.per-page', 16);
                 // udpate session
                 session()->set('per-page', $perPage);
             }

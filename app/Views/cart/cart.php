@@ -6,9 +6,9 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-md-8 col-lg-6">
-                    <div class="header">
-                        <h3>Giỏ hàng</h3>
-                        <h2><?=$cart ?? null ? 'Danh sách sản phẩm đã chọn' : 'Giỏ hàng của bạn đang trống!'?></h2>
+                    <div class="section-title">
+                        <h2>Giỏ hàng</h2>
+                        <h3><?= $cart && $count  ? 'Danh sách sản phẩm đã chọn' : 'Giỏ hàng của bạn đang trống!' ?></h3>
                     </div>
 
                 </div>
@@ -17,7 +17,8 @@
                 <?php $this->insert('cart/cart-list', [
                     'cartDetails' => $cartDetails,
                     'paginator' => $paginator,
-                    'total_price' =>$total_price
+                    'total_price' => $total_price,
+                    'count'=>$count
                 ]); ?>
             </div>
         </div>

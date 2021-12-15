@@ -20,7 +20,7 @@ class Brand extends Model
      * 
      * @var boolean
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * Danh các thuộc tính để khi gọi $model->fill($array) thì các

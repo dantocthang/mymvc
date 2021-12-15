@@ -2,10 +2,10 @@
     <li>
         <form action="<?= $paginator->url(1); ?>">
             <select name="per-page" class="form-select" onchange="this.form.submit()">
-                <option <?= $paginator->getPerPage() == 15 ? "selected" : '' ?> value="15">15</option>
-                <option <?= $paginator->getPerPage() == 25 ? "selected" : '' ?> value="25">25</option>
-                <option <?= $paginator->getPerPage() == 50 ? "selected" : '' ?> value="50">50</option>
-                <option <?= $paginator->getPerPage() == 100 ? "selected" : '' ?> value="100">100</option>
+                <option <?= $paginator->getPerPage() == 16 ? "selected" : '' ?> value="16">16</option>
+                <option <?= $paginator->getPerPage() == 24 ? "selected" : '' ?> value="24">24</option>
+                <option <?= $paginator->getPerPage() == 32 ? "selected" : '' ?> value="32">32</option>
+                <option <?= $paginator->getPerPage() == 40 ? "selected" : '' ?> value="40">40</option>
             </select>
         </form>
     </li>

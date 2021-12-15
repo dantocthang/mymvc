@@ -2,7 +2,7 @@
     body {
         color: #1a202c;
         text-align: left;
-        background-color: #e2e8f0;
+        background-color: #dfe6e9;
     }
 
     .main-body {

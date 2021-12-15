@@ -40,7 +40,7 @@ class AdminController extends BaseController
         $categories = Category::paginate($this->getPerPage());
         $total = Category::count();
 
-        $paginator = new Paginator($this->request, $categories, $total, 15);
+        $paginator = new Paginator($this->request, $categories, $total);
 
         $paginator->onEachSide(2);
 
@@ -116,7 +116,7 @@ class AdminController extends BaseController
         $brands = Brand::paginate($this->getPerPage());
         $total = Brand::count();
 
-        $paginator = new Paginator($this->request, $brands, $total, 15);
+        $paginator = new Paginator($this->request, $brands, $total);
 
         $paginator->onEachSide(2);
 
@@ -216,7 +216,7 @@ class AdminController extends BaseController
 
         $categories = Category::all();
 
-        $paginator = new Paginator($this->request, $products, $total, 15);
+        $paginator = new Paginator($this->request, $products, $total);
 
         $paginator->onEachSide(2);
 
@@ -377,7 +377,7 @@ class AdminController extends BaseController
             redirect('/home');
         $users = User::paginate($this->getPerPage());
         $total = User::count();
-        $paginator = new Paginator($this->request, $users, $total, 15);
+        $paginator = new Paginator($this->request, $users, $total);
         $paginator->onEachSide(2);
         $this->render('/admin/user', ['users' => $users, 'paginator' => $paginator]);
     }
@@ -394,7 +394,7 @@ class AdminController extends BaseController
         $user = User::find($user_id);
         $roleUsers = Role_user::whereuser_id($user_id)->paginate($this->getPerPage());
         $total = Role_user::whereuser_id($user_id)->count();
-        $paginator = new Paginator($this->request, $roleUsers, $total, 15);
+        $paginator = new Paginator($this->request, $roleUsers, $total);
         $paginator->onEachSide(2);
         if ($this->request->ajax()) {
             $html = $this->view->render(
