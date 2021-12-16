@@ -44,6 +44,7 @@
     <?= $this->insert('partials/pagination', ['paginator' => $paginator]); ?>
 </div>
 
+
 <style>
     table>thead {
         vertical-align: top !important;

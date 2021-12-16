@@ -53,14 +53,14 @@
             let target = $('.item-list');
             reloadProductList(reload_url, target);
             Swal.fire(
-                'Deleted!',
+                'Xóa thành công!',
                 response.message,
                 'success'
             );
 
         }).fail(function(response) { // nếu thất bại
             Swal.fire(
-                'Error',
+                'Lỗi',
                 response.responseJSON.message,
                 'error'
             )
@@ -78,7 +78,7 @@
             Swal.fire(
                 'Lỗi',
                 'Không thể tải lại danh sách!.',
-                'Lỗi'
+                'error'
             )
         });
     }

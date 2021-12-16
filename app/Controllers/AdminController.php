@@ -67,7 +67,6 @@ class AdminController extends BaseController
 
     public function addCategory()
     {
-        print_r($_POST);
         $isPost = $_POST['submit'] ?? null;
         if ($isPost) {
             $category = new Category();
@@ -245,6 +244,8 @@ class AdminController extends BaseController
 
     public function showAddProduct()
     {
+        if ($_SESSION['isAdmin'] != ENCRYPTION_KEY)
+            redirect('/home');
         $categories = Category::all();
         $brands = Brand::all();
         return $this->render(

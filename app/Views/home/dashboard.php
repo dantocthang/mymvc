@@ -422,7 +422,7 @@
                  <div class="col-lg-6">
                      <div class="info-box mb-4">
                          <i class="bx bx-map"></i>
-                         <h3>Our Address</h3>
+                         <h3>Địa chỉ của chúng tôi</h3>
                          <p>Đại học Cần Thơ, Đường 3/2, Phường Xuân Khánh, Quận Ninh Kiều, Thành phố Cần Thơ</p>
                      </div>
                  </div>
@@ -430,7 +430,7 @@
                  <div class="col-lg-3 col-md-6">
                      <div class="info-box  mb-4">
                          <i class="bx bx-envelope"></i>
-                         <h3>Email Us</h3>
+                         <h3>Liên hệ với chúng tôi qua email</h3>
                          <p>contact@example.com</p>
                      </div>
                  </div>
@@ -438,7 +438,7 @@
                  <div class="col-lg-3 col-md-6">
                      <div class="info-box  mb-4">
                          <i class="bx bx-phone-call"></i>
-                         <h3>Call Us</h3>
+                         <h3>Gọi điện</h3>
                          <p>+84 xx xxx xxxx</p>
                      </div>
                  </div>

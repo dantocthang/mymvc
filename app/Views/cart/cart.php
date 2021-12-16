@@ -13,14 +13,16 @@
 
                 </div>
             </div>
-            <div class="item-list">
-                <?php $this->insert('cart/cart-list', [
-                    'cartDetails' => $cartDetails,
-                    'paginator' => $paginator,
-                    'total_price' => $total_price,
-                    'count'=>$count
-                ]); ?>
-            </div>
+            <?php if ($cart && $count) : ?>
+                <div class="item-list">
+                    <?php $this->insert('cart/cart-list', [
+                        'cartDetails' => $cartDetails,
+                        'paginator' => $paginator,
+                        'total_price' => $total_price,
+                        'count' => $count
+                    ]); ?>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
 </div>
