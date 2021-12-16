@@ -36,7 +36,7 @@ class CartController extends BaseController
             $cartDetail->price = $product->price;
             $cartDetail->save();
         } else {
-            $item = CartDetail::where(['cart_id'=>$cart->id,'product_id'=>$product_id])->first();
+            $item = CartDetail::where(['cart_id' => $cart->id, 'product_id' => $product_id])->first();
             if ($item != null) {
                 $item->amount++;
                 $item->save();
@@ -63,11 +63,11 @@ class CartController extends BaseController
             redirect('/login');
         }
         $cart = Cart::whereuser_id($user->id)->first() ?? null;
-        if ($cart==null){
-            $cart=new Cart();
+        if ($cart == null) {
+            $cart = new Cart();
         }
         $cartDetails = CartDetail::wherecart_id($cart->id)->paginate($this->getPerPage());
-        $count=CartDetail::wherecart_id($cart->id)->count();
+        $count = CartDetail::wherecart_id($cart->id)->count();
         $items = CartDetail::wherecart_id($cart->id)->get();
         $total_price = 0;
         foreach ($items as $item) {
@@ -78,14 +78,16 @@ class CartController extends BaseController
         $paginator->onEachSide(2);
 
         if ($this->request->ajax()) {
-            $html = $this->view->render('cart/cart-list', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price,'count'=>$count]);
-            //print_r($html);
-            return $this->json([
-                'data' => $html
-            ]);
+
+                $html = $this->view->render('cart/cart-list', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price, 'count' => $count]);
+                //print_r($html);
+                return $this->json([
+                    'data' => $html
+                ]);
+            
         }
 
-        return $this->render('cart/cart', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price,'count'=>$count]);
+        return $this->render('cart/cart', ['cartDetails' => $cartDetails, 'paginator' => $paginator, 'cart' => $cart, 'total_price' => $total_price, 'count' => $count]);
     }
 
 
@@ -97,7 +99,7 @@ class CartController extends BaseController
             if ($cartDetail) {
                 if ($cartDetail->delete()) {
                     return $this->json([
-                        'message' => 'Sản phẩm '. $cartDetail->name . ' đã được xóa thành công!'
+                        'message' => 'Sản phẩm ' . $cartDetail->name . ' đã được xóa thành công!'
                     ], Response::HTTP_OK);
                 } else {
                     return $this->json([
